@@ -99,7 +99,7 @@ class FormsServiceProvider extends ServiceProvider
 
 
       $this->publishes([
-        __DIR__.'/Assets' => public_path('vendor/ascent/forms'),
+        __DIR__.'/../assets' => public_path('vendor/ascent/forms'),
     
       ], 'public');
 
