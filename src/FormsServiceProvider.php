@@ -28,6 +28,8 @@ class FormsServiceProvider extends ServiceProvider
 
     $this->bootComponents();
 
+    $this->bootPublishes();
+
     
     Blade::directive('formstart', function ($form) {
        return "<?php echo view('forms::formstart', ['form' => $form]); ?>";
@@ -97,14 +99,8 @@ class FormsServiceProvider extends ServiceProvider
 
     public function bootPublishes() {
 
-
       $this->publishes([
         __DIR__.'/../assets' => public_path('vendor/ascent/forms'),
-    
-      ], 'public');
-
-      $this->publishes([
-        __DIR__.'/Assets' => public_path('vendor/ascentcreative/forms'),
     
       ], 'public');
 
