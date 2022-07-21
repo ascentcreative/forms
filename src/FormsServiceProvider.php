@@ -97,6 +97,12 @@ class FormsServiceProvider extends ServiceProvider
 
     public function bootPublishes() {
 
+
+      $this->publishes([
+        __DIR__.'/Assets' => public_path('vendor/ascent/forms'),
+    
+      ], 'public');
+
       $this->publishes([
         __DIR__.'/Assets' => public_path('vendor/ascentcreative/forms'),
     
