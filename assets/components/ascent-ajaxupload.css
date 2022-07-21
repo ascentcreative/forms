@@ -1,0 +1,70 @@
+.ajaxupload.form-control {
+   padding: 0px;
+   overflow: hidden;
+}
+
+.ajaxupload input[type="file"] {
+    display: none;
+}
+
+.ajaxupload .ajaxupload-ui {
+    display: flex;
+
+    position: relative;
+    cursor: pointer;
+
+}
+
+
+.ajaxupload .ajaxupload-ui:after {
+    content: 'Browse';
+    display: block;
+    padding: 0 10px;
+
+    color: #495057;
+    content: "Browse";
+    background-color: #e9ecef;
+
+    border-left: 1px solid #ced4da;
+
+    display: flex;
+    align-items: center;
+}
+
+.ajaxupload .ajaxupload-ui .ajaxupload-display {
+    flex: 1 1 100%;
+    height: calc(1.5em + .75rem + 2px);
+    position: relative;
+  
+
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+
+}
+
+.ajaxupload .ajaxupload-ui .ajaxupload-display .ajaxupload-text {
+    position: relative;
+    z-index: 11;
+}
+
+
+.ajaxupload .ajaxupload-display .ajaxupload-progress {
+
+    position: absolute;
+    background: #efefef;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+
+}
+
+.ajaxupload .ajaxupload-reset {
+    display: none;
+}
+
+.ajaxupload.has-file .ajaxupload-reset {
+    display: inline-block;
+}

@@ -1,0 +1,13 @@
+.fksac-wrap.has-value > .fksac-display,
+.fksac-wrap .ra-entry {
+    display: block !important;
+}
+
+.fksac-wrap > .fksac-display,
+.fksac-wrap.has-value .fksac-entry {
+    display: none !important;
+}
+
+.fksac-clear {
+    margin-left: 10px;
+}

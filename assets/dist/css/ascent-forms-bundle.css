@@ -1,0 +1,873 @@
+.ajaxupload.form-control {
+   padding: 0px;
+   overflow: hidden;
+}
+
+.ajaxupload input[type="file"] {
+    display: none;
+}
+
+.ajaxupload .ajaxupload-ui {
+    display: flex;
+
+    position: relative;
+    cursor: pointer;
+
+}
+
+
+.ajaxupload .ajaxupload-ui:after {
+    content: 'Browse';
+    display: block;
+    padding: 0 10px;
+
+    color: #495057;
+    content: "Browse";
+    background-color: #e9ecef;
+
+    border-left: 1px solid #ced4da;
+
+    display: flex;
+    align-items: center;
+}
+
+.ajaxupload .ajaxupload-ui .ajaxupload-display {
+    flex: 1 1 100%;
+    height: calc(1.5em + .75rem + 2px);
+    position: relative;
+  
+
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+
+}
+
+.ajaxupload .ajaxupload-ui .ajaxupload-display .ajaxupload-text {
+    position: relative;
+    z-index: 11;
+}
+
+
+.ajaxupload .ajaxupload-display .ajaxupload-progress {
+
+    position: absolute;
+    background: #efefef;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+
+}
+
+.ajaxupload .ajaxupload-reset {
+    display: none;
+}
+
+.ajaxupload.has-file .ajaxupload-reset {
+    display: inline-block;
+}
+
+.ajaxuploadmulti .form-control {
+    padding: 0px;
+    overflow: hidden;
+    margin-bottom: 10px;
+ }
+
+.ajaxuploadmulti input[type="file"] {
+    display: none;
+}
+
+.ajaxuploadmulti .ajaxuploadmulti-ui {
+    display: flex;
+
+    position: relative;
+    cursor: pointer;
+
+}
+
+
+.ajaxupload .ajaxupload-ui:after {
+    content: 'Browse';
+    display: block;
+    padding: 0 10px;
+
+    color: #495057;
+    content: "Browse";
+    background-color: #e9ecef;
+
+    border-left: 1px solid #ced4da;
+
+    display: flex;
+    align-items: center;
+}
+
+.ajaxuploadmulti .ajaxuploadmulti-ui .ajaxupload-display {
+    flex: 1 1 100%;
+    height: calc(1.5em + .75rem + 2px);
+    position: relative;
+  
+
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+
+}
+
+.ajaxuploadmulti .ajaxupload-ui .ajaxupload-display .ajaxupload-text {
+    position: relative;
+    z-index: 11;
+}
+
+
+.ajaxuploadmulti .ajaxupload-display .ajaxupload-progress {
+
+    position: absolute;
+    background: #efefef;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+
+}
+
+.ajaxuploadmulti .ajaxupload-reset {
+    display: none;
+}
+
+.ajaxuploadmulti.has-file .ajaxupload-reset {
+    display: inline-block;
+}
+
+.ui-sortable li.link {
+    background-image: url('/vendor/ascent/cms/img/draggable.png');
+    background-position: left 10px center;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+}
+.cms-blockselect-grid {
+    display: grid;
+    gap: 20px;
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+
+.cms-blockselect-grid.cms-blockselect-columns-2 {
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    grid-template-columns: 1fr 1fr;
+    /* flex: 0 0 49%; */
+}
+
+.cms-blockselect-grid .cms-blockselect-columns-3 {
+   
+    /* flex: 0 0 49%; */
+}
+
+
+.cms-blockselect-grid .cms-blockselect-option {
+
+    border: 2px solid #ccc;
+    padding: 10px;
+    /* margin-bottom: 2%; */
+    border-radius: 5px;
+    background: white;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 0;
+
+}
+
+
+
+
+.cms-blockselect-flex {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    /* justify-content: center; */
+    align-items: flex-start;
+    gap: 0.3em 1em;
+}
+
+
+.cms-blockselect-flex .cms-blockselect-option {
+
+    flex: 0 0 100%;
+    border: 2px solid #ccc;
+    padding: 10px;
+    margin-bottom: 2%;
+    border-radius: 5px;
+    background: white;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    box-sizing: border-box;
+
+}
+
+.cms-blockselect-flex.cms-blockselect-columns-2 .cms-blockselect-option {
+    flex: 0 0 49%;
+}
+
+.cms-blockselect-flex.cms-blockselect-columns-3 .cms-blockselect-option {
+    flex: 0 0 32%;
+}
+
+.cms-blockselect-flex.cms-blockselect-columns-4 .cms-blockselect-option {
+    flex: 0 0 24%;
+}
+
+.cms-blockselect-flex.cms-blockselect-columns-5 .cms-blockselect-option {
+    flex: 0 0 19%;
+}
+
+.cms-blockselect-flex .cms-blockselect-option:last-child {
+    margin-bottom: 0;
+}
+
+.cms-blockselect-option INPUT {
+    display: none;
+}
+
+
+.cms-blockselect-option:hover {
+    border: 2px solid var(--primary);  
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%);
+}
+
+.cms-blockselect-option.selected {
+    background: var(--primary); 
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%);
+}
+.fksac-wrap.has-value > .fksac-display,
+.fksac-wrap .ra-entry {
+    display: block !important;
+}
+
+.fksac-wrap > .fksac-display,
+.fksac-wrap.has-value .fksac-entry {
+    display: none !important;
+}
+
+.fksac-clear {
+    margin-left: 10px;
+}
+
+
+.ui-sortable li.link {
+    background-image: url('/vendor/ascent/cms/img/draggable.png');
+    background-position: left 10px center;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+}
+.cms-relatedtokens {
+    
+}
+
+.rt_token {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 0 5px 5px 0px;
+}
+
+.rt_token A {
+    margin-left: 5px;
+}
+.ra-wrap.has-value > .ra-display,
+.ra-wrap .ra-entry {
+    display: block !important;
+}
+
+.ra-wrap > .ra-display,
+.ra-wrap.has-value .ra-entry {
+    display: none !important;
+}
+
+.ra-clear {
+    margin-left: 10px;
+}
+
+/* .stack-edit {
+
+} */
+
+
+.block-edit {
+    /* padding: 20px;  */
+    background-color: #f7f7f7;
+    border-radius: 5px; 
+    margin-bottom: 10px;
+    
+
+    display: flex;
+}
+
+.ui-sortable-placeholder.block-edit {
+    margin-bottom: 10px;
+}
+
+.block-edit .block-handle {
+    min-width: 20px;
+    background: #ccc;
+    flex: 0 0;
+    margin: -0px 00px -0px 0px ;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    
+} 
+
+.block-edit .block-handle:before {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.block-edit.ui-sortable-helper,
+.block-edit.ui-sortable-helper .block-handle {
+    cursor: grabbing !important;
+}
+
+.block-edit .block-content {
+
+    margin: 10px;
+    flex-basis: 100%;
+
+    display: flex;
+
+}
+
+.block-edit .block-settings {
+    
+    width: 50px;
+    flex: 0 0;
+}
+
+.block-edit .block-settings .controls {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 10px 10px 10px 0px; 
+    font-size: 1.4rem; 
+    height:100%;
+}
+
+.ui-sortable-helper {
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 20%);
+}
+
+
+.blockitem {
+    /* padding: 5px; */
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    overflow: hidden;
+} 
+
+.blockitem .blockitem-content {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0px;
+    overflow: hidden;
+    margin: 0px 15px 0px 5px;
+    position: relative;
+}
+
+
+
+.blockitem .blockitem-handle {
+  
+    position: absolute;
+    top: 5px; 
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    z-index: 100;
+    cursor: grab;
+
+}
+
+.blockitem.ui-sortable-helper,
+.blockitem.ui-sortable-helper .blockitem-handle {
+    cursor: grabbing !important;
+}
+
+
+.blockitem .blockitem-delete {
+  
+    position: absolute;
+    bottom: 5px; 
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    z-index: 100;
+    color: inherit;
+
+}
+
+
+
+.blockitem .ui-resizable-handle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: inherit;
+}
+
+.blockitem .ui-resizable-handle:after {
+    content: '';
+    display: block;
+    height: 80%;
+    width: 2px;
+    background: #ccc;
+}
+
+.blockitem .ui-resizable-e {
+    right: 0px;
+    width: 10px;
+}
+
+.ui-sortable-placeholder {
+    border-radius: 10px;
+    background: #ececec;
+    visibility: visible !important;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.controls A {
+    color: #333;
+}
+
+
+
+.drop-not-allowed:before {
+    content: 'Not enough space';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    position: absolute;
+    z-index: 110;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+
+.croppieupload {
+	
+	/* width: 400px;
+	height: 200px; */
+
+    max-width: 100%;
+	
+	cursor: pointer;
+	
+	position: relative;
+	
+	background: rgba(0,0,0,0.1);
+    background-size: cover;
+    background-repeat: no-repeat;
+	
+	
+}
+
+.croppieupload .cu_actions {
+	
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	
+}
+
+.croppieupload .cu_actions A {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+
+.croppieupload.empty .cu_actions {
+	display: none;
+}
+
+.croppieupload.empty {
+	
+	border: 3px dashed #777;
+	border-radius: 10px;
+    
+    /* aspect-ratio: 1/1; */
+	
+	
+}
+
+.croppieupload img {
+    max-width: 100%;
+    /* max-height: 50vh; */
+}
+
+
+.croppieupload.empty.unconstrained {
+    max-width: 100% !important;
+    height: 100%;
+    min-height: 100px !important;
+}
+
+.croppieupload.has-image.unconstrained {
+    /* display: inline-block;
+    min-width: 100px;
+    max-width: 100%; */
+}
+
+.croppieupload .cu_message {
+	display: none;
+    text-align: center;
+}
+
+.croppieupload.empty .cu_message {
+	display: block;
+	font-size: 18px;
+}
+
+.croppieupload .cu_trigger {
+	
+	position: absolute;
+	
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+	
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	/* xborder: 3px solid white; */
+}
+
+.croppieupload INPUT[type="file"], 
+.croppieupload INPUT[type='text'] {
+	display: none;
+}
+
+.cu_curtain {
+	
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.8);
+	
+	z-index: 5000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cu_wrap {
+	
+	/* xwidth: 800px; */
+	/* xheight: 800px; */
+	background: white;
+	
+	padding: 30px;
+}
+
+.cudlg_actions {
+	text-align: center;
+}
+
+.cudlg_actions A.button {
+	display: inline-block;
+	margin: 0 10px;
+	
+}
+
+.croppie-container {
+    width: 100%;
+    height: 100%;
+}
+
+.croppie-container .cr-image {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+    max-height: none;
+    max-width: none;
+}
+
+.croppie-container .cr-boundary {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.croppie-container .cr-viewport,
+.croppie-container .cr-resizer {
+    position: absolute;
+    border: 2px solid #fff;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    box-shadow: 0 0 2000px 2000px rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.croppie-container .cr-resizer {
+  z-index: 2;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.croppie-container .cr-resizer-vertical,
+.croppie-container .cr-resizer-horisontal {
+  position: absolute;
+  pointer-events: all;
+}
+
+.croppie-container .cr-resizer-vertical::after,
+.croppie-container .cr-resizer-horisontal::after {
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    border: 1px solid black;
+    background: #fff;
+    width: 10px;
+    height: 10px;
+    content: '';
+}
+
+.croppie-container .cr-resizer-vertical {
+  bottom: -5px;
+  cursor: row-resize;
+  width: 100%;
+  height: 10px;
+}
+
+.croppie-container .cr-resizer-vertical::after {
+    left: 50%;
+    margin-left: -5px;
+}
+
+.croppie-container .cr-resizer-horisontal {
+  right: -5px;
+  cursor: col-resize;
+  width: 10px;
+  height: 100%;
+}
+
+.croppie-container .cr-resizer-horisontal::after {
+    top: 50%;
+    margin-top: -5px;
+}
+
+.croppie-container .cr-original-image {
+    display: none;
+}
+
+.croppie-container .cr-vp-circle {
+    border-radius: 50%;
+}
+
+.croppie-container .cr-overlay {
+    z-index: 1;
+    position: absolute;
+    cursor: move;
+    touch-action: none;
+}
+
+.croppie-container .cr-slider-wrap {
+    width: 75%;
+    margin: 15px auto;
+    text-align: center;
+}
+
+.croppie-result {
+    position: relative;
+    overflow: hidden;
+}
+
+.croppie-result img {
+    position: absolute;
+}
+
+.croppie-container .cr-image,
+.croppie-container .cr-overlay,
+.croppie-container .cr-viewport {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/*************************************/
+/***** STYLING RANGE INPUT ***********/
+/*************************************/
+/*http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html */
+/*************************************/
+
+.cr-slider {
+    -webkit-appearance: none;
+/*removes default webkit styles*/
+	/*border: 1px solid white; *//*fix for FF unable to apply focus style bug */
+    width: 300px;
+/*required for proper track sizing in FF*/
+    max-width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: transparent;
+}
+
+.cr-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 0;
+    border-radius: 3px;
+}
+
+.cr-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #ddd;
+    margin-top: -6px;
+}
+
+.cr-slider:focus {
+    outline: none;
+}
+/*
+.cr-slider:focus::-webkit-slider-runnable-track {
+background: #ccc;
+}
+*/
+
+.cr-slider::-moz-range-track {
+    width: 100%;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 0;
+    border-radius: 3px;
+}
+
+.cr-slider::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #ddd;
+    margin-top: -6px;
+}
+
+/*hide the outline behind the border*/
+.cr-slider:-moz-focusring {
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+.cr-slider::-ms-track {
+    width: 100%;
+    height: 5px;
+    background: transparent;
+/*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+	border-color: transparent;/*leave room for the larger thumb to overflow with a transparent border */
+	border-width: 6px 0;
+	color: transparent;/*remove default tick marks*/
+}
+.cr-slider::-ms-fill-lower {
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+}
+.cr-slider::-ms-fill-upper {
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+}
+.cr-slider::-ms-thumb {
+	border: none;
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	background: #ddd;
+	margin-top:1px;
+}
+.cr-slider:focus::-ms-fill-lower {
+	background: rgba(0, 0, 0, 0.5);
+}
+.cr-slider:focus::-ms-fill-upper {
+	background: rgba(0, 0, 0, 0.5);
+}
+/*******************************************/
+
+/***********************************/
+/* Rotation Tools */
+/***********************************/
+.cr-rotate-controls {
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
+	z-index: 1;
+}
+.cr-rotate-controls button {
+	border: 0;
+	background: none;
+}
+.cr-rotate-controls i:before {
+	display: inline-block;
+	font-style: normal;
+	font-weight: 900;
+	font-size: 22px;
+}
+.cr-rotate-l i:before {
+	content: '↺';
+}
+.cr-rotate-r i:before {
+	content: '↻';
+}
+
+
+.charlimit_wrap {
+    position: relative;
+}
+
+.charlimit_display {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    
+	padding: 5px;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+.charlimit_display.full {
+	background: rgba(255,120,120,0.3);
+}

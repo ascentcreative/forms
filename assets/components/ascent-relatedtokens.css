@@ -1,0 +1,15 @@
+.cms-relatedtokens {
+    
+}
+
+.rt_token {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 0 5px 5px 0px;
+}
+
+.rt_token A {
+    margin-left: 5px;
+}

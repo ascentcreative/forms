@@ -1,0 +1,13 @@
+.ra-wrap.has-value > .ra-display,
+.ra-wrap .ra-entry {
+    display: block !important;
+}
+
+.ra-wrap > .ra-display,
+.ra-wrap.has-value .ra-entry {
+    display: none !important;
+}
+
+.ra-clear {
+    margin-left: 10px;
+}

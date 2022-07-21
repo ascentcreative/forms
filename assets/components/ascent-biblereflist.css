@@ -1,0 +1,6 @@
+.ui-sortable li.link {
+    background-image: url('/vendor/ascent/cms/img/draggable.png');
+    background-position: left 10px center;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+}

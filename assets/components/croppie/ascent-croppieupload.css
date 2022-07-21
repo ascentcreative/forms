@@ -1,0 +1,129 @@
+.croppieupload {
+	
+	/* width: 400px;
+	height: 200px; */
+
+    max-width: 100%;
+	
+	cursor: pointer;
+	
+	position: relative;
+	
+	background: rgba(0,0,0,0.1);
+    background-size: cover;
+    background-repeat: no-repeat;
+	
+	
+}
+
+.croppieupload .cu_actions {
+	
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	
+}
+
+.croppieupload .cu_actions A {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+
+.croppieupload.empty .cu_actions {
+	display: none;
+}
+
+.croppieupload.empty {
+	
+	border: 3px dashed #777;
+	border-radius: 10px;
+    
+    /* aspect-ratio: 1/1; */
+	
+	
+}
+
+.croppieupload img {
+    max-width: 100%;
+    /* max-height: 50vh; */
+}
+
+
+.croppieupload.empty.unconstrained {
+    max-width: 100% !important;
+    height: 100%;
+    min-height: 100px !important;
+}
+
+.croppieupload.has-image.unconstrained {
+    /* display: inline-block;
+    min-width: 100px;
+    max-width: 100%; */
+}
+
+.croppieupload .cu_message {
+	display: none;
+    text-align: center;
+}
+
+.croppieupload.empty .cu_message {
+	display: block;
+	font-size: 18px;
+}
+
+.croppieupload .cu_trigger {
+	
+	position: absolute;
+	
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+	
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	/* xborder: 3px solid white; */
+}
+
+.croppieupload INPUT[type="file"], 
+.croppieupload INPUT[type='text'] {
+	display: none;
+}
+
+.cu_curtain {
+	
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.8);
+	
+	z-index: 5000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cu_wrap {
+	
+	/* xwidth: 800px; */
+	/* xheight: 800px; */
+	background: white;
+	
+	padding: 30px;
+}
+
+.cudlg_actions {
+	text-align: center;
+}
+
+.cudlg_actions A.button {
+	display: inline-block;
+	margin: 0 10px;
+	
+}

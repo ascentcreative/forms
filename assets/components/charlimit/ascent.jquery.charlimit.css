@@ -1,0 +1,18 @@
+
+.charlimit_wrap {
+    position: relative;
+}
+
+.charlimit_display {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    
+	padding: 5px;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+.charlimit_display.full {
+	background: rgba(255,120,120,0.3);
+}
