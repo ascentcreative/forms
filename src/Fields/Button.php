@@ -9,8 +9,10 @@ class Button extends FormObjectBase implements FormComponent {
 
     public $component = 'forms-fields-button';
     
-    public function __construct($name) {
+    public function __construct($name, $label) {
         $this->name = $name;
+        $this->label = $label;
+        $this->value = '';
     }
 
 }

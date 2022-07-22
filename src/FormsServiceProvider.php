@@ -30,6 +30,10 @@ class FormsServiceProvider extends ServiceProvider
 
     $this->bootPublishes();
 
+
+    Blade::directive('form', function ($form) {
+        return "<?php echo view('forms::form', ['form' => $form]); ?>";
+     });
     
     Blade::directive('formstart', function ($form) {
        return "<?php echo view('forms::formstart', ['form' => $form]); ?>";
