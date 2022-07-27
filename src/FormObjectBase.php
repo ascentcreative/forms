@@ -19,7 +19,20 @@ class FormObjectBase {
     */
     static function make(...$args) {
         $cls = get_called_class();
-        return new $cls(...$args);
+        $instance = new $cls(...$args);
+        return $instance->initialise();
+    }
+
+    static function makeWithDefaults($defaults, ...$args) {
+        $cls = get_called_class();
+        $instance = new $cls(...$args);
+        return $instance->defaults($defaults)
+                        ->initialise();
+    }
+
+    public function initialise() {
+        // does nothing - overrideable
+        return $this;
     }
 
     /**

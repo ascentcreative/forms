@@ -7,7 +7,14 @@ trait Structural {
 
     public $children = [];
 
+    public $defaults = [];
+
     public function add(FormComponent $component) {
+        foreach($this->defaults as $key=>$value) {
+            if(!isset($component->$key)) {
+                $component->$key($value);
+            }
+        }
         $this->children[] = $component;
         return $this;
     }
