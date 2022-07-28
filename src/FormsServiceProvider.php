@@ -63,6 +63,7 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('forms-fields-wysiwyg', 'AscentCreative\Forms\Components\Fields\Wysiwyg');
     Blade::component('forms-fields-options', 'AscentCreative\Forms\Components\Fields\Options');
     Blade::component('forms-fields-textarea', 'AscentCreative\Forms\Components\Fields\Textarea');
+    Blade::component('forms-fields-fileupload', 'AscentCreative\Forms\Components\Fields\FileUpload');
     
 
     Blade::component('forms-fields-blockselect', 'AscentCreative\Forms\Components\Fields\BlockSelect');
@@ -101,6 +102,7 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('cms-form-hasmany', 'AscentCreative\Forms\Components\Fields\HasMany');
     Blade::component('cms-form-relationautocomplete', 'AscentCreative\Forms\Components\Fields\RelationAutocomplete');
     Blade::component('cms-form-pivotlist', 'AscentCreative\Forms\Components\Fields\PivotList');
+    Blade::component('cms-form-fileupload', 'AscentCreative\Forms\Components\Fields\FileUpload');
 
   }
 

@@ -30,6 +30,6 @@ class Hidden extends Component
      */
     public function render()
     {
-        return view('cms::components.form.hidden');
+        return view('forms::components.fields.hidden');
     }
 }
