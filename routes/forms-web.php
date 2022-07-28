@@ -32,7 +32,7 @@ Route::middleware('web')->group( function() {
 
 Route::prefix('admin')->middleware(['auth', 'can:administer'])->group(function() {
 
-
+    
     
 });
 

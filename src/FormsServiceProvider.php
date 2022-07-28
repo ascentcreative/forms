@@ -74,6 +74,7 @@ class FormsServiceProvider extends ServiceProvider
 
     Blade::component('forms-structure-fieldset', 'AscentCreative\Forms\Components\Structure\Fieldset');
     Blade::component('forms-structure-subform', 'AscentCreative\Forms\Components\Structure\Subform');
+    Blade::component('forms-structure-subformloader', 'AscentCreative\Forms\Components\Structure\SubformLoader');
     Blade::component('forms-structure-hr', 'AscentCreative\Forms\Components\Structure\HR');
     Blade::component('forms-structure-html', 'AscentCreative\Forms\Components\Structure\HTML');
 
