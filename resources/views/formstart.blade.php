@@ -1,14 +1,18 @@
 {{-- No need to render any of this on a read-only form --}}
 @if(!$form->readonly)
 
-<form method="{{ ($form->method == 'PUT' ? 'POST' : $form->method) ?? 'POST' }}" action="{{ $form->action ?? url()->current() }}" id={{ $name ?? ($name = 'frm_' . uniqid()) }}>
+<form method="{{ ($form->method == 'PUT' ? 'POST' : $form->method) ?? 'POST' }}" action="{{ $form->action ?? url()->current() }}" id={{ $name ?? ($name = 'frm_' . uniqid()) }} enctype="multipart/form-data"
+    
+    @foreach($form->tag_attributes as $name=>$value)
+        {{ $name }}="{{ $value }}"
+    @endforeach
+    
+    >
     @if($form->method == 'PUT')
         @method('PUT')
     @endif
     @csrf
-
-
-
+    <input type="submit" disabled="" style="display: none">
 
 @if($form->dirtyDetect)
     @push('scripts')
