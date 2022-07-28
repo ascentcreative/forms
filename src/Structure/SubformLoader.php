@@ -15,11 +15,11 @@ class SubformLoader extends FormObjectBase implements FormComponent {
 
     public $component = 'forms-structure-subformloader';
 
-    public function __construct($name, $source, $resolver) {
+    public function __construct($name, $source, $map) {
 
         $this->name = $name;
         $this->source = $source;
-        $this->resolver = $resolver;
+        $this->map = $map;
 
         $this->children([
             // HTML::make('here')
@@ -27,24 +27,44 @@ class SubformLoader extends FormObjectBase implements FormComponent {
 
     }
 
+    public function initSubform($data) {
+
+      
+        $data = (object) $data;
+         // resolve the value of the source field into the relevant subform:
+        $source = $this->source; 
+
+        $key = old(dotname($this->source), $data->$source);
+
+        if($key) {
+            
+            $subform = $this->map[$key]; //$data->$source];
+        
+            // instantiate the necessary subform based on the value
+            $this->children([
+                $subform::make('dynamic'),
+            ]);
+
+        }
+
+
+
+    }
+
     public function populate($data=null) {
 
-        // resolve the value of the source field into the relevant subform:
-        dump($data->rule_class);
-
-        $subform = 'AscentCreative\Offer\Forms\Admin\Rules\BuyABCForY';
-
-        dump($subform::make(''));
-
-        // instantiate the necessary subform based on the value
-        $this->children([
-            $subform::make('dynamic'),
-            // Textarea::make('config', "Config"),
-        ]);
-
-
+        $this->initSubform($data);
+       
         // and then call populate on the parent:
         parent::populate($data);
+
+    }
+
+    public function compileRules($input) {
+
+        $this->initSubform($input);
+
+        return []; // no rules on the subform element. The form will interrogate the child elemnts.
 
     }
 

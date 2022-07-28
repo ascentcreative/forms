@@ -19,6 +19,23 @@ Route::middleware('web')->group( function() {
 
     });
 
+    Route::post('/forms/subformloader', function() {
+
+        // dd(request()->all());
+        $key = request()->key;
+        $map = (array) json_decode(decrypt(request()->map));
+
+        // dd($map);
+
+        $cls = $map[$key];
+
+        $form = $cls::make('dynamic');
+
+        return view('forms::children', ['children'=>$form->children])->render();
+
+
+    })->name('forms.subformloader');
+
 });
 
 
@@ -32,7 +49,7 @@ Route::middleware('web')->group( function() {
 
 Route::prefix('admin')->middleware(['auth', 'can:administer'])->group(function() {
 
-    
+
     
 });
 

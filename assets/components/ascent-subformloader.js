@@ -6,19 +6,41 @@ $.ascent = $.ascent?$.ascent:{};
 
 var SubformLoader = {
 
-    // Default options.
-	options: {
+    // // Default options.
+	// options: {
 
-    },
+    // },
 
     _init: function () {
 
         var self = this;
 
         // alert('SFLoader');
+        let map = this.element.data('map')
+
+
 
         // watch for changes in the watched field, and use that value to request a subform.
-        
+        $(document).on('change', '[name=' + this.element.data('source') + ']', function (e) {
+            // alert('changed');
+            $(self.element).css('opacity', 0.5);
+            
+            let source = e.target;
+            console.log(source);
+
+            $.ajax({
+                'method': 'post',
+                'url': '/forms/subformloader',
+                'data': {
+                    'key': $(source).val(),
+                    'map': map
+                }
+            }).done(function(data) {
+                $(self.element).html(data);
+                $(self.element).css('opacity', 1);
+            });
+
+        });
 
         // load it over AJAX and replace the content accordingly
 
