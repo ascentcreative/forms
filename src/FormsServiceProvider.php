@@ -64,6 +64,7 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('forms-fields-textarea', 'AscentCreative\Forms\Components\Fields\Textarea');
     
 
+    Blade::component('forms-fields-blockselect', 'AscentCreative\Forms\Components\Fields\BlockSelect');
     Blade::component('forms-fields-foreignkeyselect', 'AscentCreative\Forms\Components\Fields\ForeignKeySelect');
     Blade::component('forms-fields-hasmany', 'AscentCreative\Forms\Components\Fields\HasMany');
     Blade::component('forms-fields-relationautocomplete', 'AscentCreative\Forms\Components\Fields\RelationAutocomplete');
@@ -80,6 +81,10 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('forms-display-blade', 'AscentCreative\Forms\Components\Display\Blade');
 
 
+    Blade::component('forms-modal', 'AscentCreative\Forms\Components\FormModal');
+
+
+
     // old CMS aliases for backwards compat:
     Blade::component('cms-form-input', 'AscentCreative\Forms\Components\Fields\Input');
     Blade::component('cms-form-button', 'AscentCreative\Forms\Components\Fields\Button');
@@ -88,7 +93,8 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('cms-form-wysiwyg', 'AscentCreative\Forms\Components\Fields\Wysiwyg');
     Blade::component('cms-form-options', 'AscentCreative\Forms\Components\Fields\Options');
     Blade::component('cms-form-textarea', 'AscentCreative\Forms\Components\Fields\Textarea');
-       
+    
+    Blade::component('cms-form-blockselect', 'AscentCreative\Forms\Components\Fields\BlockSelect');
     Blade::component('cms-form-foreignkeyselect', 'AscentCreative\Forms\Components\Fields\ForeignKeySelect');
     Blade::component('cms-form-hasmany', 'AscentCreative\Forms\Components\Fields\HasMany');
     Blade::component('cms-form-relationautocomplete', 'AscentCreative\Forms\Components\Fields\RelationAutocomplete');
