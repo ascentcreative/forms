@@ -56,6 +56,7 @@ class FormsServiceProvider extends ServiceProvider
   public function bootComponents() {
     // new aliases
     Blade::component('forms-fields-input', 'AscentCreative\Forms\Components\Fields\Input');
+    Blade::component('forms-fields-hidden', 'AscentCreative\Forms\Components\Fields\Hidden');
     Blade::component('forms-fields-compound-date', 'AscentCreative\Forms\Components\Fields\CompoundDate');
     Blade::component('forms-fields-button', 'AscentCreative\Forms\Components\Fields\Button');
     Blade::component('forms-fields-checkbox', 'AscentCreative\Forms\Components\Fields\Checkbox');
@@ -87,6 +88,7 @@ class FormsServiceProvider extends ServiceProvider
 
     // old CMS aliases for backwards compat:
     Blade::component('cms-form-input', 'AscentCreative\Forms\Components\Fields\Input');
+    Blade::component('cms-form-hidden', 'AscentCreative\Forms\Components\Fields\Hidden');
     Blade::component('cms-form-button', 'AscentCreative\Forms\Components\Fields\Button');
     Blade::component('cms-form-compound-date', 'AscentCreative\Forms\Components\Fields\CompoundDate');
     Blade::component('cms-form-checkbox', 'AscentCreative\Forms\Components\Fields\Checkbox');
