@@ -15,6 +15,7 @@ class Form extends FormObjectBase   {
     protected $data = null;
     public $dirtyDetect = true;
     public $readonly = false;
+    public $tag_attributes = [];
 
     public function render() {   
         $this->populate();
@@ -27,5 +28,9 @@ class Form extends FormObjectBase   {
         return $this;
     }
 
+    public function attribute($name, $value) {
+        $this->tag_attributes[$name] = $value;
+        return $this;
+    }
 
 }
