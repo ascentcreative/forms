@@ -7,7 +7,7 @@ use AscentCreative\Forms\Traits\CanBeValidated;
 use AscentCreative\Forms\Traits\CanHaveValue;
 
 
-class Input extends FormObjectBase implements FormComponent {
+class Hidden extends FormObjectBase implements FormComponent {
 
     use CanBeValidated, CanHaveValue;
 
