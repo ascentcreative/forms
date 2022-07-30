@@ -58,6 +58,7 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('forms-fields-input', 'AscentCreative\Forms\Components\Fields\Input');
     Blade::component('forms-fields-hidden', 'AscentCreative\Forms\Components\Fields\Hidden');
     Blade::component('forms-fields-compound-date', 'AscentCreative\Forms\Components\Fields\CompoundDate');
+    Blade::component('forms-fields-datetime', 'AscentCreative\Forms\Components\Fields\DateTime');
     Blade::component('forms-fields-button', 'AscentCreative\Forms\Components\Fields\Button');
     Blade::component('forms-fields-checkbox', 'AscentCreative\Forms\Components\Fields\Checkbox');
     Blade::component('forms-fields-wysiwyg', 'AscentCreative\Forms\Components\Fields\Wysiwyg');
@@ -71,6 +72,7 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('forms-fields-hasmany', 'AscentCreative\Forms\Components\Fields\HasMany');
     Blade::component('forms-fields-relationautocomplete', 'AscentCreative\Forms\Components\Fields\RelationAutocomplete');
     Blade::component('forms-fields-pivotlist', 'AscentCreative\Forms\Components\Fields\PivotList');
+    Blade::component('forms-fields-morphpivot', 'AscentCreative\Forms\Components\Fields\MorphPivot');
 
     Blade::component('forms-structure-fieldset', 'AscentCreative\Forms\Components\Structure\Fieldset');
     Blade::component('forms-structure-subform', 'AscentCreative\Forms\Components\Structure\Subform');
@@ -93,6 +95,7 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('cms-form-hidden', 'AscentCreative\Forms\Components\Fields\Hidden');
     Blade::component('cms-form-button', 'AscentCreative\Forms\Components\Fields\Button');
     Blade::component('cms-form-compound-date', 'AscentCreative\Forms\Components\Fields\CompoundDate');
+    Blade::component('cms-form-datetime', 'AscentCreative\Forms\Components\Fields\DateTime');
     Blade::component('cms-form-checkbox', 'AscentCreative\Forms\Components\Fields\Checkbox');
     Blade::component('cms-form-wysiwyg', 'AscentCreative\Forms\Components\Fields\Wysiwyg');
     Blade::component('cms-form-options', 'AscentCreative\Forms\Components\Fields\Options');

@@ -40,6 +40,30 @@ Route::middleware('web')->group( function() {
 
 
 
+// generate item blade for MorphPivot
+Route::post('/forms/components/morphpivot/add', function() {
+    
+    $opts = request()->all();
+
+    // dd($opts);
+    $morph = $opts['morph'];
+    $idx = $opts['idx'];
+
+    $cls = $opts['item']['type'];
+    $item = (object) [
+        $morph . '_type' => $opts['item']['type'],  
+        $morph . '_id' => $opts['item']['id'],
+    ];
+
+
+    $item->$morph = $cls::find($opts['item']['id']);
+
+    return view($opts['bladepath'] . '.' . $opts['morph'] . '.item', ['item'=>$item, 'morph'=>$morph, 'idx'=>-1, 'name'=>$opts['field'] . '[' . $idx . ']'])->render();
+
+    
+})->name('forms.components.morphpivot.add');
+
+
 
 /*
 |--------------------------------------------------------------------------
