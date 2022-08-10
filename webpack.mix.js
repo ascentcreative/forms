@@ -15,6 +15,7 @@ mix.scripts([
                 'assets/components/*.js',
                 'assets/components/croppie/*.js',
                 'assets/components/charlimit/*.js',
+                'assets/components/spectrum/spectrum.min.js'
                 // 'assets/multistepform/*.js',
                 // 'assets/jquery/*.js'
             ], 
@@ -26,6 +27,7 @@ mix.scripts([
                 'assets/components/*.css',
                 'assets/components/croppie/*.css',
                 'assets/components/charlimit/*.css',
+                'assets/components/spectrum/spectrum.min.css'
                 // 'assets/multistepform/*.css'
             ], 
                 'assets/dist/css/ascent-forms-bundle.css', 
