@@ -2,12 +2,14 @@
 
 namespace AscentCreative\Forms\Components\Structure;
 
+use Illuminate\Support\Facades\View;
+
 use Illuminate\View\Component;
 
 class Tabs extends Component
 {
 
-    public $tabbar;
+    public $tabstack;
     public $styled=true;
     /**
      * Create a new component instance.

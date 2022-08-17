@@ -7,6 +7,8 @@ use Illuminate\View\Component;
 class Tab extends Component
 {
 
+    public $tabstack;
+
     /**
      * Create a new component instance.
      *

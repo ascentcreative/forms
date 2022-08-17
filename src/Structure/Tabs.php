@@ -11,8 +11,10 @@ class Tabs extends FormObjectBase implements FormComponent {
     use Structural;
 
     public $component = 'forms-structure-tabs';
+    public $tabstack;
 
     public function __construct($name) {
         $this->name = $name;
+        $this->tabstack = 'tabs_' . uniqid();
     }
 }
