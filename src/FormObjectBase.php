@@ -8,6 +8,8 @@ class FormObjectBase {
     public $name = '';
     public $model = null;
 
+    public $parent = null;
+
    /**
     * Static make function for convenience
     * Just calls the constructor. 
