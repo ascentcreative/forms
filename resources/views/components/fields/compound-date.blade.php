@@ -5,19 +5,20 @@
 
 @section('element')
 
-    <div class="flex form-inline" id="{{ nameToId($name) }}">
+    <div class="flex form-inline compound-date" id="{{ nameToId($name) }}">
         <input type="text" width="12" size="3" name="{{ $name }}[day]" value="{{ $value['day'] ?? '' }}" class="cd-day form-control text-center" maxlength="2" placeholder="DD">
         <span class="mx-2">/</span>
         <input type="text" width="20" size="3" name="{{ $name }}[month]" value="{{ $value['month'] ?? '' }}"class="cd-month form-control text-center" maxlength="2" placeholder="MM">
         <span class="mx-2">/</span>
         <input type="text" width="20" size="5" name="{{ $name }}[year]" value="{{ $value['year'] ?? '' }}"class="cd-year form-control text-center" maxlength="4" placeholder="YYYY">
+        <input type="hidden" class="compound-date-output" name="{{ $name }}" value="{{ $orig }}" />
     </div>
-    <input type="hidden" name="{{ $name }}" value="{{ $orig }}" />
+   
 
 @overwrite
 
 
-
+{{-- 
 @push('scripts')
 <script>
     $(document).ready(function() {
@@ -42,4 +43,4 @@
 
     });
 </script>
-@endpush
+@endpush --}}
