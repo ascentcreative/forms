@@ -6,8 +6,8 @@
     
     <x-slot name="footer">
 
-        <button class="button btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button class="button btn btn-primary">OK</button>
+        <button class="button btn btn-secondary btn-cancel" data-dismiss="modal">Cancel</button>
+        <button class="button btn btn-primary btn-ok">OK</button>
         
     </x-slot>
 
