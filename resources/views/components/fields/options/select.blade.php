@@ -5,7 +5,7 @@
 
 @section('element')
 
-<select name="{{ $name }}" class="form-control">
+<select name="{{ $name }}" class="{{ $attributes['elementClass'] }} form-control">
 
 @if($includeNullItem) 
 
