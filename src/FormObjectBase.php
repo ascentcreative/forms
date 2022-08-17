@@ -119,7 +119,7 @@ class FormObjectBase {
             $prop = dotname($this->name);
             $value = $this->traverseData($data, $prop);
             // $value = '';
-            
+
             if($value) { //isset($data->$prop)) {
                 $this->value($value); //$data->$prop);
             } else {
@@ -145,10 +145,21 @@ class FormObjectBase {
         if(str_contains($key, '.')) {
             $ary = explode('.', $key);
             $thisKey = array_shift($ary);
-            if(isset($data->$thisKey)) {
+
+            if(is_array($data)) {
+
+                if(isset($data[$thisKey])) {
+                    $data = $data[$thisKey];
+                    return $this->traverseData($data, join('.', $ary));
+                }
+
+            } else if(isset($data->$thisKey)) {
                 $data = $data->$thisKey;
                 return $this->traverseData($data, join('.', $ary));
+            } else {
+           //     dump('end traverse empty handed');
             }
+
         } else {
 
             if(is_array($data)) {
