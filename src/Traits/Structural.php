@@ -16,6 +16,7 @@ trait Structural {
             }
         }
         $this->children[] = $component;
+        $component->parent($this);
         return $this;
     }
 
