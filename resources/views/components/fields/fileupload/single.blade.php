@@ -5,15 +5,21 @@
 
 @section('element')
 
-    <div class="ajaxupload form-control" id="{{nameToId($name)}}"">
 
-        <input type="hidden" name="{{$name}}" class="ajaxupload-value" id="{{nameToId($name)}}-value" value="{{ $value }}">
-        <input type="file" class="ajaxupload-file" accept="{{ join(',', $accept) }}" id="{{nameToId($name)}}-upload">
+    <div class="ajaxupload form-control" id="{{nameToId($name)}}"
+            data-disk="{{ $disk }}"
+            data-path="{{ $path }}"
+            data-preservefilename="{{ $preserveFilename ? 'true':'false' }}"
+        >
+
+        <input type="file" class="ajaxupload-file" name="{{ $name }}[upload]" @if($accept) accept="{{ join(',', $accept) }}" @endif id="{{nameToId($name)}}-upload">
+
         <label class="ajaxupload-ui" for="{{ nameToId($name) }}-upload">
+        
             <div class="ajaxupload-display">
                 
                 <A href="#" onclick="return false;" class="ajaxupload-reset bi-x-square-fill text-lg text-danger" style="font-size: 1.2rem; padding-right: 20px;"></A>
-
+                
                 <div class="ajaxupload-progress"></div>
                 <div class="ajaxupload-text">
                     
@@ -30,6 +36,8 @@
 
             </div>
         </label>
+        <input type="hidden" name="{{$name}}" class="ajaxupload-value" id="{{nameToId($name)}}-value" value="{{ $value }}">
+        
         
     </div>
 
@@ -43,7 +51,7 @@
         @style('/vendor/ascent/cms/form/components/ascent-ajaxupload.css')
     @endpush
 @endonce --}}
-
+{{-- 
 @push('scripts')
     <script>
         $(document).ready(function() {
@@ -54,4 +62,4 @@
             });
         });
     </script>
-@endpush
+@endpush --}}
