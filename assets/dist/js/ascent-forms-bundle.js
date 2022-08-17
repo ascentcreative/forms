@@ -22,16 +22,23 @@ var AjaxUpload = {
     var thisID = this.element[0].id;
     var fldName = idAry[1];
     var obj = this.element;
-    upl = $(this.element).find('input[type="file"]');
+    console.log(obj); // alert($(obj).data('disk'));
+
+    this.options.disk = $(obj).data('disk');
+    this.options.path = $(obj).data('path');
+    this.options.preserveFilename = $(obj).data('preservefilename'); // console.log($(obj).data());
+
+    upl = $(this.element).find('input[type="file"]'); // alert('init uplaoder');
 
     if ($(this.element).find('.ajaxupload-value').val() != '') {
       $(this.element).addClass('has-file');
     }
 
-    $(this.element).find('.ajaxupload-reset').on('click', function () {
+    $(this.element).find('.ajaxupload-reset').on('click', function (e) {
       self.reset();
+      e.stopPropagation();
     });
-    upl.on('change', function () {
+    $(upl).on('change', function () {
       var formData = new FormData();
       formData.append('payload', this.files[0]);
       formData.append('disk', self.options.disk);
@@ -94,8 +101,11 @@ var AjaxUpload = {
 
             break;
         }
+
+        self.reset();
       });
     });
+    $(obj).addClass('initialised');
   },
   setValue: function setValue(value, text) {
     $(this.element).find('.ajaxupload-value').val(value);
@@ -106,6 +116,7 @@ var AjaxUpload = {
     $(this.element).find('.ajaxupload-value').val('');
     $(this.element).removeClass('has-file');
     this.updateUI(this.options.placeholder, 0);
+    console.log(this.element);
     $(this.element).trigger('change');
   },
   updateUI: function updateUI(text) {
@@ -118,7 +129,26 @@ var AjaxUpload = {
   }
 };
 $.widget('ascent.ajaxupload', AjaxUpload);
-$.extend($.ascent.AjaxUpload, {}); // ******
+$.extend($.ascent.AjaxUpload, {}); // init on document ready
+
+$(document).ready(function () {
+  // alert('init blockselect');
+  $('.ajaxupload').not('.initialised').ajaxupload();
+});
+MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+var observer = new MutationObserver(function (mutations, observer) {
+  // fired when a mutation occurs
+  // console.log(mutations, observer);
+  // ...
+  $('.ajaxupload').not('.initialised').ajaxupload();
+}); // define what element should be observed by the observer
+// and what types of mutations trigger the callback
+
+observer.observe(document, {
+  subtree: true,
+  childList: true //...
+
+}); // ******
 // Custom form component to enter & edit bible refs
 // Expects incoming data from Laravel Eloquent
 // ******
@@ -513,6 +543,55 @@ var observer = new MutationObserver(function (mutations, observer) {
   // console.log(mutations, observer);
   // ...
   $('.cms-blockselect').not('.initialised').blockselect();
+}); // define what element should be observed by the observer
+// and what types of mutations trigger the callback
+
+observer.observe(document, {
+  subtree: true,
+  childList: true //...
+
+}); // ******
+// ******
+// Code (c) Kieran Metcalfe / Ascent Creative 2021
+
+$.ascent = $.ascent ? $.ascent : {};
+var CompoundDate = {
+  _init: function _init() {
+    var self = this; // console.log(this.element.data());
+
+    console.log('CD INIT');
+    this.element.addClass('initialised');
+    console.log(this.element);
+    $(this.element).on('change', 'input', function (e) {
+      console.log('cd change');
+      $out = $(self.element).find('INPUT.cd-year').val() + "-" + $(self.element).find('INPUT.cd-month').val() + "-" + $(self.element).find('INPUT.cd-day').val();
+      $(self.element).find('.compound-date-output').val($out); // $('input[name="{{ $name }}"]').val($out);
+    }); // $(this.element).on('keyup', '.cd-day, .cd-month', function(event) {
+    //     if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)){
+    //         let len = 2;
+    //         if($(this).val().length == len) {
+    //             let next = $(this).nextAll('input')[0];
+    //             if(next) {
+    //                 next.focus();
+    //             }
+    //         }
+    //     }
+    // });
+    //this.element.val('');
+    // this.addToken('test new');
+    // this.addToken('Tag 2', 2);
+  }
+};
+$.widget('ascent.compounddate', CompoundDate);
+$.extend($.ascent.CompoundDate, {});
+$(document).ready(function () {//    $('.compound-date').not('.initialised').compounddate();
+});
+MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+var observer = new MutationObserver(function (mutations, observer) {
+  // fired when a mutation occurs
+  // console.log(mutations, observer);
+  // ...
+  $('.compound-date').not('.initialised').compounddate();
 }); // define what element should be observed by the observer
 // and what types of mutations trigger the callback
 
@@ -1492,6 +1571,138 @@ $.widget('ascent.subformloader', SubformLoader);
 $.extend($.ascent.SubformLoader, {});
 $(document).ready(function () {
   $('.subform-loader').subformloader();
+}); // ******
+// ******
+// Code (c) Kieran Metcalfe / Ascent Creative 2021
+
+$.ascent = $.ascent ? $.ascent : {};
+var ValueWithUnits = {
+  _init: function _init() {
+    var self = this; // console.log(this.element.data());
+
+    this.element.addClass('initialised');
+    $(this.element).on('change', 'input, select', function (e) {
+      console.log('VWU change');
+      $out = $(self.element).find('INPUT.vwu-amount').val() + $(self.element).find('SELECT.vwu-unit').val();
+      $(self.element).find('.vwu-output').val($out); // $('input[name="{{ $name }}"]').val($out);
+    }); // $(this.element).on('keyup', '.cd-day, .cd-month', function(event) {
+    //     if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)){
+    //         let len = 2;
+    //         if($(this).val().length == len) {
+    //             let next = $(this).nextAll('input')[0];
+    //             if(next) {
+    //                 next.focus();
+    //             }
+    //         }
+    //     }
+    // });
+    //this.element.val('');
+    // this.addToken('test new');
+    // this.addToken('Tag 2', 2);
+  }
+};
+$.widget('ascent.valuewithunits', ValueWithUnits);
+$.extend($.ascent.ValueWithUnits, {});
+$(document).ready(function () {
+  $('.value-with-units').not('.initialised').valuewithunits();
+});
+MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+var observer = new MutationObserver(function (mutations, observer) {
+  // fired when a mutation occurs
+  // console.log(mutations, observer);
+  // ...
+  $('.value-with-units').not('.initialised').valuewithunits();
+}); // define what element should be observed by the observer
+// and what types of mutations trigger the callback
+
+observer.observe(document, {
+  subtree: true,
+  childList: true //...
+
+}); // ******
+// ******
+// Code (c) Kieran Metcalfe / Ascent Creative 2021
+
+CKEDITOR.disableAutoInline = true;
+$.ascent = $.ascent ? $.ascent : {};
+var Wysiwyg = {
+  ck: null,
+  _init: function _init() {
+    var unid = $(this.element).attr('data-unid');
+    var roxyFileman = '/ascentcore/fileman/index.html';
+    this.ck = CKEDITOR.inline('edit-' + unid, {
+      extraAllowedContent: 'form; form[*]; form(*); input; input(*); input[*]; p[style]; script; script(*); script[*]; iframe; code; embed; iframe[*]; embed[*]; span(*); div(*); div(codesnippet)[*]; div[*]; codesnippet; codesnippet[contenteditable]; codesnippet[partial]; codesnippet[*]',
+      filebrowserBrowseUrl: roxyFileman,
+      filebrowserImageBrowseUrl: roxyFileman + '?type=image',
+      removeDialogTabs: 'link:upload;image:upload',
+      removePlugins: 'elementspath',
+      extraPlugins: 'font,richcombo,snippet,photogallery,justify,panel,button,floatpanel,panelbutton,colorbutton,colordialog',
+      contentsCss: ['/css/fck_editorarea.css', '/css/buttons.css'],
+      // colorButton_colors: '{{ join(",", \AscentCreative\CMS\Models\Swatch::all()->transform(function($item, $key) { return str_replace('#', '', $item->hex); })->toArray()) }}',
+      entities_additional: '#009'
+    });
+    this.ck.on('change', function (e) {
+      console.log('wysiwyg change4'); // update the Textarea and fire off a change event (used by Form Dirty checks);
+
+      $('#output-' + unid).val($('#edit-' + unid).html());
+      $('#output-' + unid).change(); // $('#output-' + unid).trigger('change');
+    });
+    $(this.element).addClass('initialised');
+  }
+};
+$.widget('ascent.wysiwyg', Wysiwyg);
+$.extend($.ascent.Wysiwyg, {}); // function wysiwyg_init(unid) {
+//     var roxyFileman = '/ascentcore/fileman/index.html'; 
+//     CKEDITOR.disableAutoInline = true;
+//     var ck = CKEDITOR.inline( 'edit-' + unid,
+//     {  
+//         extraAllowedContent : 'form; form[*]; form(*); input; input(*); input[*]; p[style]; script; script(*); script[*]; iframe; code; embed; iframe[*]; embed[*]; span(*); div(*); div(codesnippet)[*]; div[*]; codesnippet; codesnippet[contenteditable]; codesnippet[partial]; codesnippet[*]', filebrowserBrowseUrl:roxyFileman,
+//         filebrowserImageBrowseUrl:roxyFileman+'?type=image',
+//         removeDialogTabs: 'link:upload;image:upload',
+//         removePlugins : 'elementspath',
+//         extraPlugins: 'font,richcombo,snippet,photogallery,justify,panel,button,floatpanel,panelbutton,colorbutton,colordialog',
+//         contentsCss: [ '/css/fck_editorarea.css','/css/buttons.css' ],
+//         colorButton_colors: '{{ join(",", \AscentCreative\CMS\Models\Swatch::all()->transform(function($item, $key) { return str_replace('#', '', $item->hex); })->toArray()) }}',
+//         entities_additional: '#009'
+//     }   
+//     );
+//     ck.on('change', function(e) {
+//         console.log(e);
+//         // update the Textarea and fire off a change event (used by Form Dirty checks);
+//         $('#output-' + unid).val($('#edit-' + unid).html());
+//         $('#output-' + unid).change();
+//     });
+//     console.log('done init');
+// }
+// init on document ready
+
+$(document).ready(function () {
+  $('.wysiwyg-editor').not('.initialised').wysiwyg();
+}); // alert('ok');
+// alert('ok');
+// make livewire compatible (check for init after DOM update)
+// document.addEventListener("DOMContentLoaded", () => {
+//     try {
+//         Livewire.hook('message.processed', (message, component) => {
+//             $('.wysiwyg-editor').not('.initialised').wysiwyg();
+//         })
+//     } catch (e) {
+//     }
+// });
+
+MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+var observer = new MutationObserver(function (mutations, observer) {
+  // fired when a mutation occurs
+  // console.log(mutations, observer);
+  // ...
+  $('.wysiwyg-editor').not('.initialised').wysiwyg();
+}); // define what element should be observed by the observer
+// and what types of mutations trigger the callback
+
+observer.observe(document, {
+  subtree: true,
+  childList: true //...
+
 }); // ******
 // Wrapper Widget which utilises the Croppie image cropper library from https://github.com/Foliotek/Croppie
 // ******
