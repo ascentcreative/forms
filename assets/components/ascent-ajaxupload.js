@@ -28,20 +28,32 @@ var AjaxUpload = {
         var fldName = idAry[1];
         
         var obj = this.element;
-        
-    
+
+        console.log(obj);
+       
+        // alert($(obj).data('disk'));
+       
+        this.options.disk = $(obj).data('disk');
+        this.options.path = $(obj).data('path');
+        this.options.preserveFilename = $(obj).data('preservefilename');
+        // console.log($(obj).data());
+
         upl = $(this.element).find('input[type="file"]');
+
+
+        // alert('init uplaoder');
 
         if($(this.element).find('.ajaxupload-value').val() != '') {
             $(this.element).addClass('has-file');
         }
 
-        $(this.element).find('.ajaxupload-reset').on('click', function() {
+        $(this.element).find('.ajaxupload-reset').on('click', function(e) {
             self.reset();
+            e.stopPropagation();
         });
+        
+        $(upl).on('change', function() {
 
-        upl.on('change', function() {
-           
             var formData = new FormData(); 
             formData.append('payload', this.files[0]); 
             formData.append('disk', self.options.disk);
@@ -123,12 +135,16 @@ var AjaxUpload = {
                         break;
                 }
 
+
+                self.reset();
+
               });
           
 
         });
         
-        
+        $(obj).addClass('initialised');
+
 
     },
 
@@ -142,6 +158,9 @@ var AjaxUpload = {
         $(this.element).find('.ajaxupload-value').val('');
         $(this.element).removeClass('has-file');
         this.updateUI(this.options.placeholder, 0);
+
+        console.log(this.element);
+
         $(this.element).trigger('change');
     },
 
@@ -165,3 +184,31 @@ $.extend($.ascent.AjaxUpload, {
 		 
 		
 }); 
+
+
+
+// init on document ready
+$(document).ready(function(){
+    // alert('init blockselect');
+    $('.ajaxupload').not('.initialised').ajaxupload();
+});
+
+
+MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+var observer = new MutationObserver(function(mutations, observer) {
+    // fired when a mutation occurs
+    // console.log(mutations, observer);
+    // ...
+    $('.ajaxupload').not('.initialised').ajaxupload();
+});
+
+// define what element should be observed by the observer
+// and what types of mutations trigger the callback
+observer.observe(document, {
+  subtree: true,
+  childList: true
+  //...
+});
+
+
