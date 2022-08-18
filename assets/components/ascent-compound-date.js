@@ -13,14 +13,14 @@ var CompoundDate = {
 
         // console.log(this.element.data());
         
-        console.log('CD INIT');
+        // console.log('CD INIT');
 
         this.element.addClass('initialised');
-
+// 
         console.log(this.element);
 
         $(this.element).on('change', 'input', function(e) {
-            console.log('cd change');
+            // console.log('cd change');
             $out = $(self.element).find('INPUT.cd-year').val() + "-" + $(self.element).find('INPUT.cd-month').val() + "-" + $(self.element).find('INPUT.cd-day').val();
 
             $(self.element).find('.compound-date-output').val($out);
