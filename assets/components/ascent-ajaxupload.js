@@ -29,7 +29,7 @@ var AjaxUpload = {
         
         var obj = this.element;
 
-        console.log(obj);
+        // console.log(obj);
        
         // alert($(obj).data('disk'));
        
