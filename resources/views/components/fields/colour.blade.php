@@ -9,35 +9,15 @@
 
 @section('element')
 
-    <input name="{{$name}}" id="{{ $id }}" value="{!! $value !!}" class="form-control {{ $elementClass ?? ''}} " autocomplete="off"/>
+    <input name="{{$name}}" id="{{ $id }}" value="{!! $value !!}" class="manual-init colour form-control {{ $elementClass ?? ''}} " autocomplete="off" data-palette="{!! $attributes['palette']->join(',') !!}"/>
 
 @overwrite
+
 {{-- 
-@once
-
-    @push('styles')
-        @style('/vendor/ascent/cms/spectrum/spectrum.min.css')
-    @endpush
-
-    @push('scripts')
-        @script('/vendor/ascent/cms/spectrum/spectrum.min.js')
-    @endpush
-
-@endonce --}}
-
 @push('scripts')
     <script>
         $(document).ready(function() {
-            $('#{{ $id }}').spectrum({
-                showPalette: true,
-                showPaletteOnly: true,
-
-                palette: [{!! \AscentCreative\CMS\Models\Swatch::all()->transform(function($item, $key) { return $item->hex; })->prepend('transparent') !!}],
-                
-                hideAfterPaletteSelect: true,
-                togglePaletteOnly: true
-            
-            });
+           
         });
     </script>
-@endpush
+@endpush --}}

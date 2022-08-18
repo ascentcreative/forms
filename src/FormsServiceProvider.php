@@ -61,6 +61,7 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('forms-fields-datetime', 'AscentCreative\Forms\Components\Fields\DateTime');
     Blade::component('forms-fields-button', 'AscentCreative\Forms\Components\Fields\Button');
     Blade::component('forms-fields-checkbox', 'AscentCreative\Forms\Components\Fields\Checkbox');
+    Blade::component('forms-fields-colour', 'AscentCreative\Forms\Components\Fields\Colour');
     Blade::component('forms-fields-wysiwyg', 'AscentCreative\Forms\Components\Fields\Wysiwyg');
     Blade::component('forms-fields-options', 'AscentCreative\Forms\Components\Fields\Options');
     Blade::component('forms-fields-textarea', 'AscentCreative\Forms\Components\Fields\Textarea');
@@ -95,6 +96,7 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('cms-form-input', 'AscentCreative\Forms\Components\Fields\Input');
     Blade::component('cms-form-hidden', 'AscentCreative\Forms\Components\Fields\Hidden');
     Blade::component('cms-form-button', 'AscentCreative\Forms\Components\Fields\Button');
+    Blade::component('cms-form-colour', 'AscentCreative\Forms\Components\Fields\Colour');
     Blade::component('cms-form-compound-date', 'AscentCreative\Forms\Components\Fields\CompoundDate');
     Blade::component('cms-form-datetime', 'AscentCreative\Forms\Components\Fields\DateTime');
     Blade::component('cms-form-checkbox', 'AscentCreative\Forms\Components\Fields\Checkbox');

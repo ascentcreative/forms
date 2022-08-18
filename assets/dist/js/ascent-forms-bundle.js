@@ -21,8 +21,8 @@ var AjaxUpload = {
     idAry = this.element[0].id.split('-');
     var thisID = this.element[0].id;
     var fldName = idAry[1];
-    var obj = this.element;
-    console.log(obj); // alert($(obj).data('disk'));
+    var obj = this.element; // console.log(obj);
+    // alert($(obj).data('disk'));
 
     this.options.disk = $(obj).data('disk');
     this.options.path = $(obj).data('path');
@@ -555,15 +555,57 @@ observer.observe(document, {
 // Code (c) Kieran Metcalfe / Ascent Creative 2021
 
 $.ascent = $.ascent ? $.ascent : {};
+var ColourField = {
+  options: {
+    palette: null
+  },
+  _init: function _init() {
+    var self = this;
+    this.element.addClass('initialised');
+    console.log('colour init');
+    this.options.palette = $(this.element).data('palette').split(',');
+    $(this.element).spectrum({
+      showPalette: true,
+      showPaletteOnly: false,
+      palette: self.options.palette,
+      hideAfterPaletteSelect: true,
+      togglePaletteOnly: false
+    });
+  }
+};
+$.widget('ascent.colourfield', ColourField);
+$.extend($.ascent.ColourField, {});
+$(document).ready(function () {
+  $('.colour').not('.manual-init').not('.initialised').colourfield();
+});
+MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+var observer = new MutationObserver(function (mutations, observer) {
+  // fired when a mutation occurs
+  // console.log(mutations, observer);
+  // ...
+  $('.colour').not('.manual-init').not('.initialised').colourfield();
+}); // define what element should be observed by the observer
+// and what types of mutations trigger the callback
+
+observer.observe(document, {
+  subtree: true,
+  childList: true //...
+
+}); // ******
+// ******
+// Code (c) Kieran Metcalfe / Ascent Creative 2021
+
+$.ascent = $.ascent ? $.ascent : {};
 var CompoundDate = {
   _init: function _init() {
     var self = this; // console.log(this.element.data());
+    // console.log('CD INIT');
 
-    console.log('CD INIT');
-    this.element.addClass('initialised');
+    this.element.addClass('initialised'); // 
+
     console.log(this.element);
     $(this.element).on('change', 'input', function (e) {
-      console.log('cd change');
+      // console.log('cd change');
       $out = $(self.element).find('INPUT.cd-year').val() + "-" + $(self.element).find('INPUT.cd-month').val() + "-" + $(self.element).find('INPUT.cd-day').val();
       $(self.element).find('.compound-date-output').val($out); // $('input[name="{{ $name }}"]').val($out);
     }); // $(this.element).on('keyup', '.cd-day, .cd-month', function(event) {
