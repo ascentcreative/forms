@@ -35,7 +35,7 @@ class ValueWithUnits extends Component
         // parse incoming value...
         if(!is_null($value) && $value != '') {
             
-            preg_match('/(?<amount>\d*\.?\d+)\s?(?<unit>px|em|ex|%|in|cn|mm|pt|pc+)/', $value, $matches);
+            preg_match('/(?<amount>\-?\d*\.?\d+)\s?(?<unit>' . join('|', $units) . '+)/', $value, $matches);
             // dd($matches);
             $this->value=$matches;
 
