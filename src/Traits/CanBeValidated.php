@@ -49,7 +49,8 @@ trait CanBeValidated {
      */
     public function required($bool, $msg=null) {
         if($bool){
-            $this->rules[] = 'required';
+            // put required at the start of the array...
+            $this->rules = array_merge(['required'], $this->rules); //'required';
         } else {
             unset($this->rules[array_search('required', $this->rules)]);
         }
