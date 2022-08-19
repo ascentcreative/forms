@@ -17,7 +17,9 @@ class CompoundDate extends FormObjectBase implements FormComponent {
         $this->name = $name;
         $this->label = $label;
 
-        $this->rules = ['date'];
+
+        $this->rules = ['exclude_if:' . $name . ',null', 'date'];
+
     }
     
 

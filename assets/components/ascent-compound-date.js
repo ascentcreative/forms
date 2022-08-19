@@ -23,7 +23,11 @@ var CompoundDate = {
             // console.log('cd change');
             $out = $(self.element).find('INPUT.cd-year').val() + "-" + $(self.element).find('INPUT.cd-month').val() + "-" + $(self.element).find('INPUT.cd-day').val();
 
-            $(self.element).find('.compound-date-output').val($out);
+            if($out != '--') {
+                $(self.element).find('.compound-date-output').val($out);
+            } else {
+                $(self.element).find('.compound-date-output').val(null);
+            }
             // $('input[name="{{ $name }}"]').val($out);
         });
 
