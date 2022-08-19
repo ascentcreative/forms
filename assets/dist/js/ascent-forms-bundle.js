@@ -607,7 +607,13 @@ var CompoundDate = {
     $(this.element).on('change', 'input', function (e) {
       // console.log('cd change');
       $out = $(self.element).find('INPUT.cd-year').val() + "-" + $(self.element).find('INPUT.cd-month').val() + "-" + $(self.element).find('INPUT.cd-day').val();
-      $(self.element).find('.compound-date-output').val($out); // $('input[name="{{ $name }}"]').val($out);
+
+      if ($out != '--') {
+        $(self.element).find('.compound-date-output').val($out);
+      } else {
+        $(self.element).find('.compound-date-output').val(null);
+      } // $('input[name="{{ $name }}"]').val($out);
+
     }); // $(this.element).on('keyup', '.cd-day, .cd-month', function(event) {
     //     if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)){
     //         let len = 2;
