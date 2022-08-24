@@ -39,7 +39,7 @@ class BlockSelect extends Component
      *
      * @return void
      */
-    public function __construct($label, $name, $value=[], $options, $columns=2, $maxSelect=-1, $maxHeight=null, $layout="flex",
+    public function __construct($label, $name, $options,$value=[], $columns=2, $maxSelect=-1, $maxHeight=null, $layout="flex",
                             $optionLabelField='', $optionKeyField=null, $valueField=null, $blockblade='', $wrapper='bootstrapformgroup', $class='')
     {
 
