@@ -1,0 +1,10 @@
+.wysiwyg-editor.empty [contenteditable][placeholder]:before {
+    /* background: red; */
+    content: attr(placeholder);
+    color: #ccc;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}

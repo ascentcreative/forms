@@ -10,37 +10,63 @@ $.ascent = $.ascent?$.ascent:{};
 var Wysiwyg = {
 
     ck: null,
+    options: {
+        toolbar: ''
+    },
+    unid: '',
 
     _init: function () {
 
         let unid = $(this.element).attr('data-unid');
 
+        this.unid = unid;
+
         let roxyFileman = '/ascentcore/fileman/index.html'; 
+
+        let toolbar = $(this.element).data('toolbar'); //this.options.toolbar;
+
+        let self = this;
 
         this.ck = CKEDITOR.inline( 'edit-' + unid,
             {  
-                extraAllowedContent : 'form; form[*]; form(*); input; input(*); input[*]; p[style]; script; script(*); script[*]; iframe; code; embed; iframe[*]; embed[*]; span(*); div(*); div(codesnippet)[*]; div[*]; codesnippet; codesnippet[contenteditable]; codesnippet[partial]; codesnippet[*]', filebrowserBrowseUrl:roxyFileman,
+                extraAllowedContent : 'form; form[*]; form(*); input; input(*); input[*]; p[style]; script; script(*); script[*]; iframe; code; embed; iframe[*]; embed[*]; span(*); div(*); div(codesnippet)[*]; div[*]; codesnippet; codesnippet[contenteditable]; codesnippet[partial]; codesnippet[*]', 
+                filebrowserBrowseUrl:roxyFileman,
                 filebrowserImageBrowseUrl:roxyFileman+'?type=image',
                 removeDialogTabs: 'link:upload;image:upload',
                 removePlugins : 'elementspath',
 
-                extraPlugins: 'font,richcombo,snippet,photogallery,justify,panel,button,floatpanel,panelbutton,colorbutton,colordialog',
+                // extraPlugins: 'font,richcombo,snippet,photogallery,justify,panel,button,floatpanel,panelbutton,colorbutton,colordialog',
+                extraPlugins: 'richcombo,snippet,photogallery,justify,panel,button,floatpanel,panelbutton,colorbutton,colordialog',
                 contentsCss: [ '/css/fck_editorarea.css','/css/buttons.css' ],
                 // colorButton_colors: '{{ join(",", \AscentCreative\CMS\Models\Swatch::all()->transform(function($item, $key) { return str_replace('#', '', $item->hex); })->toArray()) }}',
-                entities_additional: '#009'
+                entities_additional: '#009',
+                toolbar: toolbar
             }   
 
         );
 
         this.ck.on('change', function(e) {
-            console.log('wysiwyg change4');
             // update the Textarea and fire off a change event (used by Form Dirty checks);
             $('#output-' + unid).val($('#edit-' + unid).html());
             $('#output-' + unid).change();
+
+            self.checkEmpty();
+
             // $('#output-' + unid).trigger('change');
         });
 
         $(this.element).addClass('initialised');
+        this.checkEmpty()
+
+    },
+
+    checkEmpty: function() {
+
+        if(!$('#edit-' + this.unid).text().trim().length) {
+            $(this.element).addClass('empty');
+        } else {
+            $(this.element).removeClass('empty')
+        }
 
     }
     
