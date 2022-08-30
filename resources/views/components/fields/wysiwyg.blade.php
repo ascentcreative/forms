@@ -9,15 +9,16 @@
 
 @section('element')
 
-   <div class="wysiwyg-editor @if($styled) wysiwyg-editor-styled @endif" data-unid="{{ $unid }}" style="width: 100%; height: 100%;">
 
-       <div @if(!$readonly) contenteditable="true" @else class="p-2" @endif id="edit-{{ $unid }}">{!! $value !!}</div>
+   <div class="wysiwyg-editor @if($styled) wysiwyg-editor-styled @endif" data-toolbar="{{ $toolbar }}" data-unid="{{ $unid }}" style="width: 100%; height: 100%;">
+
+       <div @if(!$readonly) contenteditable="true" @else class="p-2" @endif id="edit-{{ $unid }}" style="height: 100%; outline-offset: 6px" placeholder="{{ $placeholder }}" >{!! $value !!}</div>
 
     </div>
 
    <div style="display: none">
-   output:
-   <textarea name="{{$name}}" id="output-{{$unid}}" wire:model="{{ dotname($name) }}" class="wysiwyg-output">{!! $value !!}</textarea>
+        output:
+        <textarea name="{{$name}}" id="output-{{$unid}}" wire:model="{{ dotname($name) }}" class="wysiwyg-output">{!! $value !!}</textarea>
    </div>
 
 @overwrite
@@ -29,16 +30,17 @@
     @endpush
 @endonce --}}
 
-{{-- @push('styles')
-
+{{-- @push('styles') --}}
+{{-- 
    <style>
-       .wysiwyg-editor * {
-           white-space: pre-wrap !important;
-           tab-size: 10 !important;
-       }
-    </style>
+    .empty[contenteditable=true]:not(:focus):before{
+        content:'place';
+        color:grey;
+        font-style:italic;
+    }
+    </style> --}}
 
-@endpush --}}
+{{-- @endpush --}}
 {{-- 
 @if(!$readonly)
     @push('scripts')
