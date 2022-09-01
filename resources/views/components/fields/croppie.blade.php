@@ -8,6 +8,15 @@
 @section('element')
 
     <input type="text" name="{{ $name }}" value="{{ $value }}" id="{{ $unid }}" />
+
+    <x-cms-modal modalid="modal-{{ $unid }}">
+        CROPPIE MODAL {{ $unid }}
+
+        <button class="btn-ok">OK</button>
+        <x-slot name="buttons">
+           
+        </x-slot>
+    </x-cms-modal>
 {{--     
    <x-cms-form-input type="text" name="{{ $name }}" value="{{$value}}" label="{{$label}}" wrapper="none">
    </x-cms-form-input> --}}
@@ -36,9 +45,10 @@
     </script>
 @endpush
 
+{{-- 
 @once
     @push('styles')
         @style('/vendor/ascent/cms/form/components/croppie/croppie.css')
         @style('/vendor/ascent/cms/form/components/croppie/ascent-croppieupload.css')
     @endpush
-@endonce
+@endonce --}}

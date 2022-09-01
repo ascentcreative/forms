@@ -132,6 +132,8 @@ var CroppieUpload = {
     },		
 
     readFile: function (input) {
+
+        // alert('reading file');
 			
         var self = this;
         
@@ -161,9 +163,22 @@ var CroppieUpload = {
 
     },
 
+
+    newStartCroppie: function(url, filewidth, fileheight, filetype) {
+
+        $('#modal-' + $(this.element).attr('id')).on('click', '.btn-ok', function(e) {
+            alert('ok');
+            $(this).parent('.modal').modal('hide');
+            e.preventDefault();
+        }).on('hidden.bs.modal', function() {
+            alert('hidden');
+        }).modal();
+ 
+    },
+
     startCroppie: function(url, filewidth, fileheight, filetype) {
 
-         console.log('startCroppie: ' + filewidth + ', ' + fileheight);
+        console.log('startCroppie: ' + filewidth + ', ' + fileheight);
 			
         var self = this;
         
