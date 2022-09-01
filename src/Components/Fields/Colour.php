@@ -14,6 +14,7 @@ class Colour extends Component
     public $wrapper;
     public $class;
     public $elementClass;
+    public $palette;
 
 
     /**
@@ -32,7 +33,11 @@ class Colour extends Component
         $this->class = $class;
         $this->elementClass = $elementClass;
 
+        $this->palette = \AscentCreative\CMS\Models\Swatch::all()->transform(function($item, $key) { return $item->hex; })->prepend('transparent');
+        
+
     }
+
 
     /**
      * Get the view / contents that represent the component.
