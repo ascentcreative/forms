@@ -1876,6 +1876,7 @@ var CroppieUpload = {
     this.element.val('');
   },
   readFile: function readFile(input) {
+    // alert('reading file');
     var self = this;
 
     if (input.files && input.files[0]) {
@@ -1896,6 +1897,15 @@ var CroppieUpload = {
     } else {
       alert("Sorry - your browser doesn't support the FileReader API");
     }
+  },
+  newStartCroppie: function newStartCroppie(url, filewidth, fileheight, filetype) {
+    $('#modal-' + $(this.element).attr('id')).on('click', '.btn-ok', function (e) {
+      alert('ok');
+      $(this).parent('.modal').modal('hide');
+      e.preventDefault();
+    }).on('hidden.bs.modal', function () {
+      alert('hidden');
+    }).modal();
   },
   startCroppie: function startCroppie(url, filewidth, fileheight, filetype) {
     console.log('startCroppie: ' + filewidth + ', ' + fileheight);
