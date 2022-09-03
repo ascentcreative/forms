@@ -24,6 +24,7 @@ var Wysiwyg = {
         let roxyFileman = '/ascentcore/fileman/index.html'; 
 
         let toolbar = $(this.element).data('toolbar'); //this.options.toolbar;
+        let palette = $(this.element).data('palette');
 
         let self = this;
 
@@ -36,9 +37,10 @@ var Wysiwyg = {
                 removePlugins : 'elementspath',
 
                 // extraPlugins: 'font,richcombo,snippet,photogallery,justify,panel,button,floatpanel,panelbutton,colorbutton,colordialog',
-                extraPlugins: 'richcombo,snippet,photogallery,justify,panel,button,floatpanel,panelbutton,colorbutton,colordialog',
+                extraPlugins: 'richcombo,justify,panel,button,floatpanel,panelbutton,colorbutton,colordialog',
                 contentsCss: [ '/css/fck_editorarea.css','/css/buttons.css' ],
                 // colorButton_colors: '{{ join(",", \AscentCreative\CMS\Models\Swatch::all()->transform(function($item, $key) { return str_replace('#', '', $item->hex); })->toArray()) }}',
+                colorButton_colors: palette,
                 entities_additional: '#009',
                 toolbar: toolbar
             }   
