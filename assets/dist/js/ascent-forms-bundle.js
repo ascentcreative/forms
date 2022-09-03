@@ -1685,6 +1685,7 @@ var Wysiwyg = {
     var roxyFileman = '/ascentcore/fileman/index.html';
     var toolbar = $(this.element).data('toolbar'); //this.options.toolbar;
 
+    var palette = $(this.element).data('palette');
     var self = this;
     this.ck = CKEDITOR.inline('edit-' + unid, {
       extraAllowedContent: 'form; form[*]; form(*); input; input(*); input[*]; p[style]; script; script(*); script[*]; iframe; code; embed; iframe[*]; embed[*]; span(*); div(*); div(codesnippet)[*]; div[*]; codesnippet; codesnippet[contenteditable]; codesnippet[partial]; codesnippet[*]',
@@ -1693,9 +1694,10 @@ var Wysiwyg = {
       removeDialogTabs: 'link:upload;image:upload',
       removePlugins: 'elementspath',
       // extraPlugins: 'font,richcombo,snippet,photogallery,justify,panel,button,floatpanel,panelbutton,colorbutton,colordialog',
-      extraPlugins: 'richcombo,snippet,photogallery,justify,panel,button,floatpanel,panelbutton,colorbutton,colordialog',
+      extraPlugins: 'richcombo,justify,panel,button,floatpanel,panelbutton,colorbutton,colordialog',
       contentsCss: ['/css/fck_editorarea.css', '/css/buttons.css'],
       // colorButton_colors: '{{ join(",", \AscentCreative\CMS\Models\Swatch::all()->transform(function($item, $key) { return str_replace('#', '', $item->hex); })->toArray()) }}',
+      colorButton_colors: palette,
       entities_additional: '#009',
       toolbar: toolbar
     });
