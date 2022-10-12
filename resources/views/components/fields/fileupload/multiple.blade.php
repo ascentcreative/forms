@@ -10,7 +10,7 @@
         <input type="file" multiple class="ajaxupload-file" accept="{{ join(',', $accept) }}" id="{{nameToId($name)}}-upload">        
     </div>
 
-    <label class="button btn btn-primary btn-sm bi-plus-circle-fill" for="{{ nameToId($name) }}-upload">
+    <label class="button btn btn-primary btn-sm bi-plus-circle-fill mb-0" for="{{ nameToId($name) }}-upload">
         Add Files
     </label>
     </div>

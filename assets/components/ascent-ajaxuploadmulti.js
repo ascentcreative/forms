@@ -12,7 +12,7 @@ var AjaxUploadMulti = {
     options: {
         disk: 'public',
         path: 'ajaxuploads',
-        preserveFilename: false,
+        preserveFilename: 1,
         placeholder: 'Choose file',
         sortable: false
     },
@@ -92,7 +92,11 @@ var AjaxUploadMulti = {
         template = $('template#ajaxuploadmulti-item');
         item = $(template.html());
         $(this.element).append(item);
-        $(item).ajaxuploadmultifile();
+        $(item).ajaxuploadmultifile({
+            disk: this.options.disk,
+            path: this.options.path,
+            preserveFilename: this.options.preserveFilename
+        });
         if(data) {
             console.log('setting data');
             console.log(data);
@@ -139,6 +143,12 @@ $.extend($.ascent.AjaxUploadMulti, {
 
 var AjaxUploadMultiFile = {
 
+    options: {
+        disk: 'public',
+        path: 'ajaxuploads',
+        preserveFilename: false
+    },
+
     _init: function() {
         console.log("INIT FILE");
         console.log('this', this.element);
@@ -183,9 +193,9 @@ var AjaxUploadMultiFile = {
       
         var formData = new FormData(); 
         formData.append('payload', file); 
-        formData.append('disk', 'public'); //self.options.disk);
-        formData.append('path', 'ajaxuploads'); //self.options.path);
-        formData.append('preserveFilename', 1); //self.options.preserveFilename?1:0);
+        formData.append('disk', self.options.disk);
+        formData.append('path', self.options.path);
+        formData.append('preserveFilename', self.options.preserveFilename);
 
         $.ajax({
             xhr: function()
