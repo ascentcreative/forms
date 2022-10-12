@@ -18,8 +18,7 @@
 
                     {{-- Removed source from blade path - not sure we need it --}}
                     {{-- @include('admin.' . $source . '.hasmany.' . $target . '.item', ['item'=> (object) $item, 'name'=>$name . '[' . $idx . ']' ] ) --}}
-
-                    @include('components.hasmany.' . $target . '.item', ['item'=> (object) $item, 'name'=>$name . '[' . $idx . ']' ] )
+                    @include($package_hint . 'components.hasmany.' . $target . '.item', ['item'=> (object) $item, 'name'=>$name . '[' . $idx . ']' ] )
 
                 @endforeach
             @endif
@@ -27,7 +26,7 @@
         </div>
     
         {{-- Derive route name from parent and target models --}}
-        <a href="{{ route('cms.components.hasmany', ['source'=>$source, 'target'=>$target, 'fieldname'=>$name]) }}" class="hasmany-add button btn btn-sm btn-primary modal-link" xdata-toggle="modal" xdata-target="#hasmanyedit">Add New</a>
+        <a href="{{ route('cms.components.hasmany', ['source'=>$source, 'target'=>$target, 'fieldname'=>$name, 'package'=>$package]) }}" class="hasmany-add button btn btn-sm btn-primary modal-link" xdata-toggle="modal" xdata-target="#hasmanyedit">Add New</a>
 
     </div>
 

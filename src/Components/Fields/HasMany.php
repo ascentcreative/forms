@@ -21,6 +21,8 @@ class HasMany extends Component
     public $source;
     public $target;
 
+    public $package;
+    public $package_hint;
 
 
 
@@ -35,12 +37,16 @@ class HasMany extends Component
     public function __construct($label, $name,
                                 $relationship,
                                 $model=null,
+                                $package='app',
                                 $wrapper="bootstrapformgroup", $class='')
     {
       
         $this->label = $label;
 
         $this->name = $name;
+
+        $this->package = $package;
+        $this->package_hint = $package == 'app' ? '' : ($package . '::');
 
         if (is_string($relationship)) {
             // dd($model);
