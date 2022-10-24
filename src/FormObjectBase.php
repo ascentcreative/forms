@@ -114,6 +114,7 @@ class FormObjectBase {
             if(isset($this->valueFunction) && $this->valueFunction instanceof \Closure) {
                 $fn = $this->valueFunction;
                 $this->value = $fn($data);
+                return;
             }
 
             $prop = dotname($this->name);
