@@ -80,12 +80,20 @@ trait Structural {
             throw new \Exception('Requested element "' . $name . '" not found');
         }
 
+        foreach($children as $component) {
+            $component->parent($elm);
+        }
+        // dump($elm->children);
+
         $collection = collect($elm->children);
         $index = $collection->pluck('name')->search($name);
 
         $spliced = $collection->splice($index+1);
 
-        $elm->children = $collection->merge($children)->merge($spliced);
+        $elm->children = $collection->merge($children)->merge($spliced)->toArray();
+
+        // dump($elm);
+        // dd($elm->children);
         
     }
 
@@ -96,6 +104,10 @@ trait Structural {
         $elm = $this->findElementContaining($name);
         if(is_null($elm)) {
             throw new \Exception('Requested element "' . $name . '" not found');
+        }
+
+        foreach($children as $component) {
+            $component->parent($elm);
         }
 
         $collection = collect($elm->children);
