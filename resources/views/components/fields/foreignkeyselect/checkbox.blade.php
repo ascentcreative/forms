@@ -5,10 +5,18 @@
 
 @section('element')
 
+    {{-- Need a hidden text element to allow for an empty value --}}
+    {{-- Otherwise, values won't be deleted when the model is saved when all checkboxes have been unticked --}}
+    <input type="hidden" name="{{$name}}" value=""/>
+
     <div style="xcolumns: 3; display: grid">
     <?php 
      
-       $opts = $query->orderBy($labelField)->get();
+        if($readonly) {
+            $opts = $readOnlyQuery->orderBy($sortField, $sortDirection)->get();
+        } else {
+            $opts = $query->orderBy($sortField, $sortDirection)->get();
+        }
 
        if(is_array($value) || is_null($value)) {
            $keys = $value;
