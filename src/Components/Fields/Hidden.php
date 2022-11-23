@@ -10,6 +10,7 @@ class Hidden extends Component
    
     public $name;
     public $value;
+    public $wrapper;
 
    
     /**
@@ -17,10 +18,11 @@ class Hidden extends Component
      *
      * @return void
      */
-    public function __construct($name, $value)
+    public function __construct($name, $value, $wrapper='none')
     {
         $this->name = $name;
         $this->value = $value;
+        $this->wrapper = $wrapper;
     }
 
     /**
