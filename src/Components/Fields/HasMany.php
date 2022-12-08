@@ -48,18 +48,29 @@ class HasMany extends Component
         $this->package = $package;
         $this->package_hint = $package == 'app' ? '' : ($package . '::');
 
+        
+
         if (is_string($relationship)) {
-            // dd($model);
+            // dump($model);
             $relationship = $this->traverseRelationship($model, $relationship); //$model->address->country();
         } else {
              //$relationship;
         }
 
-        $this->value = old($name, $relationship->get());
+        $val = [];
+        if ($relationship) {
+            $val = $relationship->get();
+        }        
+
+        $this->value = old($name, $val);
 
         $this->relationship = $relationship;
     
-      
+        // // if($relationship == null) {
+        //     dump($model);
+        //     dump($relationship);
+        // }
+
         $this->source = $relationship->getParent()->getTable();
         $this->target = $relationship->getRelated()->getTable();
 
