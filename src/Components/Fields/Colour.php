@@ -16,13 +16,15 @@ class Colour extends Component
     public $elementClass;
     public $palette;
 
+    public $manualInit;
+
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($label, $name, $value, $wrapper="bootstrapformgroup", $class='', $elementClass = '')
+    public function __construct($label, $name, $value, $wrapper="bootstrapformgroup", $class='', $elementClass = '', $manualInit=false)
     {
     
         $this->label = $label;
@@ -35,6 +37,7 @@ class Colour extends Component
 
         $this->palette = \AscentCreative\CMS\Models\Swatch::all()->transform(function($item, $key) { return $item->hex; })->prepend('transparent');
         
+        $this->manualInit = $manualInit;
 
     }
 
