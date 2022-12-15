@@ -9,7 +9,7 @@
 
 @section('element')
 
-    <input name="{{$name}}" id="{{ $id }}" value="{!! $value !!}" class="manual-init colour form-control {{ $elementClass ?? ''}} " autocomplete="off" data-palette="{!! $palette->join(',') !!}"/>
+    <input name="{{$name}}" id="{{ $id }}" value="{!! $value !!}" class="colour form-control {{ $elementClass ?? ''}} " autocomplete="off" data-palette="{!! $palette->join(',') !!}"/>
 
 @overwrite
 
