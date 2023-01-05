@@ -78,7 +78,7 @@ trait CanBeValidated {
         }
 
         if($msg) {
-            $this->messages['required'] = $msg;
+            $this->messages['unique'] = $msg;
         }
         return $this;
     }
@@ -90,14 +90,15 @@ trait CanBeValidated {
      * @return [type]
      */
     public function compileRules ($input) {
-      
         // compile the 'unique' rule, if set:
         if(($idx = array_search('unique', $this->rules)) !== false) {
             $unique = 'unique:' . $this->unique_class . ',' . $this->name;
 
             // if there's an ID in the input, use that to set the exclude parameter
+            // TODO: Find a better way to do this as it requires a specific ID field in the input
+            // - Maybe add a way to extract it from the URL/Route
             if(isset($input['id'])) {
-                $unique .= ',' . $input['id'];
+                $unique .= ',' . $input['id']; 
             }
 
             $this->rules[$idx] = $unique;
