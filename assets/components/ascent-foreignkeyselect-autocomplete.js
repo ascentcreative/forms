@@ -17,6 +17,8 @@ var ForeignKeySelectAutoComplete = {
 
         console.log(this.options.source);
 
+        
+
 
         // console.log(Buffer.from($(this.element).data('source'), 'base64').toString('ascii'));
 
@@ -46,6 +48,8 @@ var ForeignKeySelectAutoComplete = {
             self.setValue(null);
             return false;
         });
+
+        this.element.addClass('initialised');
             
 
     },
@@ -73,6 +77,37 @@ $.extend($.ascent.ForeignKeySelectAutoComplete, {
 		
 }); 
 
+
+
+// init on document ready
 $(document).ready(function(){
-   // $('.cms-relatedtokens').relatedtokens();
+    // alert('init blockselect');
+
+    $('.foreign-key-select-autocomplete').not('.initialised').foreignkeyselectautocomplete({
+        // source: {!! $vals !!}
+    });
+
+});
+
+
+
+
+MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+var observer = new MutationObserver(function(mutations, observer) {
+    // fired when a mutation occurs
+    // console.log(mutations, observer);
+    // ...
+    $('.foreign-key-select-autocomplete').not('.initialised').foreignkeyselectautocomplete({
+        // source: {!! $vals !!}
+    });
+    
+});
+
+// define what element should be observed by the observer
+// and what types of mutations trigger the callback
+observer.observe(document, {
+  subtree: true,
+  childList: true
+  //...
 });

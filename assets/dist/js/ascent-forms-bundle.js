@@ -688,6 +688,7 @@ var ForeignKeySelectAutoComplete = {
       self.setValue(null);
       return false;
     });
+    this.element.addClass('initialised');
   },
   setValue: function setValue(item) {
     if (item) {
@@ -703,8 +704,27 @@ var ForeignKeySelectAutoComplete = {
   }
 };
 $.widget('ascent.foreignkeyselectautocomplete', ForeignKeySelectAutoComplete);
-$.extend($.ascent.ForeignKeySelectAutoComplete, {});
-$(document).ready(function () {// $('.cms-relatedtokens').relatedtokens();
+$.extend($.ascent.ForeignKeySelectAutoComplete, {}); // init on document ready
+
+$(document).ready(function () {
+  // alert('init blockselect');
+  $('.foreign-key-select-autocomplete').not('.initialised').foreignkeyselectautocomplete({// source: {!! $vals !!}
+  });
+});
+MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+var observer = new MutationObserver(function (mutations, observer) {
+  // fired when a mutation occurs
+  // console.log(mutations, observer);
+  // ...
+  $('.foreign-key-select-autocomplete').not('.initialised').foreignkeyselectautocomplete({// source: {!! $vals !!}
+  });
+}); // define what element should be observed by the observer
+// and what types of mutations trigger the callback
+
+observer.observe(document, {
+  subtree: true,
+  childList: true //...
+
 }); // ******
 // Form component to work with Eloquent HasMany relationships. 
 // Expects routes (in Web.php) to handle creation modal and items. 

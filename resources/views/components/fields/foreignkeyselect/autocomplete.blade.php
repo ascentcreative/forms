@@ -36,7 +36,7 @@ if($value) {
 
         
 
-    <div class="fksac-wrap @isset($value) has-value @endisset " id="{{ nameToId($name) }}"
+    <div class="foreign-key-select-autocomplete fksac-wrap @isset($value) has-value @endisset " id="{{ nameToId($name) }}"
             data-source="{!! base64_encode($vals) !!}"
         >
         <div class="fksac-entry">
@@ -69,10 +69,7 @@ if($value) {
 @push('scripts')
     <script>
 
-        $('#{{ nameToId($name) }}').foreignkeyselectautocomplete({
-            // source: {!! $vals !!}
-        });
-        
+      
     </script>
 @endpush
 
