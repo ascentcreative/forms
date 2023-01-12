@@ -17,6 +17,13 @@ var ForeignKeySelectAutoComplete = {
 
         console.log(this.options.source);
 
+
+        // console.log(Buffer.from($(this.element).data('source'), 'base64').toString('ascii'));
+
+        console.log();
+
+        this.options.source = $.parseJSON(atob($(this.element).data('source')))
+
         $(this.element).find('.fksac-input').autocomplete({
             source: this.options.source,
             // source: this.options.source,
