@@ -1,7 +1,9 @@
 {{-- No need to render any of this on a read-only form --}}
 @if(!$form->readonly)
 
-<form method="{{ ($form->method == 'PUT' ? 'POST' : $form->method) ?? 'POST' }}" action="{{ $form->action ?? url()->current() }}" id={{ $name ?? ($name = 'frm_' . uniqid()) }} enctype="multipart/form-data"
+<form method="{{ ($form->method == 'PUT' ? 'POST' : $form->method) ?? 'POST' }}" action="{{ $form->action ?? url()->current() }}" id={{ $name ?? ($name = 'frm_' . uniqid()) }} 
+    {{-- enctype="multipart/form-data" --}}
+    enctype="application/x-www-form-urlencoded"
     
     @foreach($form->tag_attributes as $name=>$value)
         {{ $name }}="{{ $value }}"
