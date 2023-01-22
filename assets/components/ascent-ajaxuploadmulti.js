@@ -196,33 +196,38 @@ var AjaxUploadMultiFile = {
         formData.append('disk', self.options.disk);
         formData.append('path', self.options.path);
         formData.append('preserveFilename', self.options.preserveFilename);
+       
 
         $.ajax({
             xhr: function()
             {
                 
             var xhr = new window.XMLHttpRequest();
-            
-            //self.setUploadState();
-            //Upload progress
-            xhr.upload.addEventListener("progress", function(evt){
-            
-                if (evt.lengthComputable) {
-                var percentComplete = (evt.loaded / evt.total) * 100;
-                //Do something with upload progress
-                //prog.find('PROGRESS').attr('value', percentComplete);
-                self.updateUI('Uploading...', percentComplete);
-                console.log(percentComplete);
+                
+                //self.setUploadState();
+                //Upload progress
+                xhr.upload.addEventListener("progress", function(evt){
+                
+                    if (evt.lengthComputable) {
+                    var percentComplete = (evt.loaded / evt.total) * 100;
+                    //Do something with upload progress
+                    //prog.find('PROGRESS').attr('value', percentComplete);
+                    self.updateUI('Uploading...', percentComplete);
+                    console.log(percentComplete);
 
-                }
-            }, false);
-            return xhr;
-            },cache: false,
+                    }
+                }, false);
+                return xhr;
+            },
+            cache: false,
             contentType: false,
             processData: false,
             type: 'POST',
             url: "/cms/ajaxupload",
-            data: formData
+            data: formData,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
 
         }).done(function(data, xhr, request){
 

@@ -296,7 +296,10 @@ var AjaxUploadMultiFile = {
       processData: false,
       type: 'POST',
       url: "/cms/ajaxupload",
-      data: formData
+      data: formData,
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
     }).done(function (data, xhr, request) {
       //Do something success-ish
       //$(obj).parents('FORM').unbind('submit', blocksubmit);
