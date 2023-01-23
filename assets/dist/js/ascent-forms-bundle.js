@@ -65,7 +65,10 @@ var AjaxUpload = {
         processData: false,
         type: 'POST',
         url: "/cms/ajaxupload",
-        data: formData
+        data: formData,
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
       }).done(function (data, xhr, requesr) {
         //Do something success-ish
         //$(obj).parents('FORM').unbind('submit', blocksubmit);
