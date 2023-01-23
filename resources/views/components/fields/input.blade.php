@@ -22,7 +22,7 @@
     @else
 
         <input type="{{$type}}" name="{{$name}}" id="{{ nameToId($name) }}" value="{!! $value !!}" @if($type=='file' && $accept != '') accept="{{ $accept }}" @endif
-            class="form-control{{ ($type=='file' ? '-file' : '') }}" 
+            class="form-control{{ ($type=='file' ? '-file' : '') }} {{ $attributes['control-class'] }}" 
             @if($required) required @endif
 
             @if($type=='number') 
