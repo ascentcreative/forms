@@ -69,7 +69,22 @@ class FormObjectBase {
         }
 
         if($this->canHaveValue ?? false) {
-            $out['value'] = old(dotname($this->name), $this->value ?? $this->default); 
+
+            $value = $this->value;
+            if(is_null($value)) {
+                $value = $this->default;
+            }
+
+            // value may be a model. 
+            // Old does incoorrect/odd things when failover is a model (i.e. tries to get the field value from the model)
+            // so, we'll separate out the value so we can actually return the model as a value.
+            
+            // also, only allow old() to be used if there is actually old data.
+            // otherwise, stored DB values may be used for relationships
+            if(count(request()->old()) > 0) {
+                $out['value'] = old(dotname($this->name), $value); // ??  $value;  
+            }
+
         }
 
         if(property_exists($this, 'rules')) {
