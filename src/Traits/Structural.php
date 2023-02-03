@@ -21,6 +21,9 @@ trait Structural {
     }
 
     public function children(Array $children) {
+
+        $children = array_filter($children);
+
         foreach($children as $child) {
 
             if($child instanceof \Closure) {
