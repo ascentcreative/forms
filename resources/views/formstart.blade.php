@@ -25,8 +25,28 @@
         <script language="javascript">
             $(document).ready(function() {
                 $('#{{ $name }}').areYouSure( {'message':'Your edits have not been saved!'} );
-
             });
+
+            // prevent submission if a field has 'block-submit' set. 
+            // This is used by, for example, file uploaders. The form must not submit while they are active.
+            $('form').submit(function(e) {
+                if( (blockers = $(this).find('.block-submit')).length > 0) {
+
+                    let msg = "You cannot submit this form";
+
+                    let blockmsg = $(blockers[0]).data('block-submit-message');
+
+                    if (blockmsg) {
+                        msg += ' beacuse ' + blockmsg;
+                    }
+
+                    msg += '.';
+
+                    alert(msg);
+                    e.preventDefault();
+                }
+            });
+
         </script>
 
 
