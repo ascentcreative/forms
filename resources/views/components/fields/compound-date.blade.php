@@ -5,6 +5,17 @@
 
 @section('element')
 
+    @if($attributes['readonly'])
+
+        <div class="col-form-label border-bottom p-2" style="min-height: 2.5em;">
+            {{-- @dump($value) --}}
+            @if($value)
+            {{ join(' / ', $value)}}
+            @endif
+        </div>
+
+    @else
+
     <div class="flex form-inline compound-date" id="{{ nameToId($name) }}">
         <input type="text" width="12" size="3" name="{{ $name }}[day]" value="{{ $value['day'] ?? '' }}" class="cd-day form-control text-center" maxlength="2" placeholder="DD">
         <span class="mx-2">/</span>
@@ -13,6 +24,8 @@
         <input type="text" width="20" size="5" name="{{ $name }}[year]" value="{{ $value['year'] ?? '' }}"class="cd-year form-control text-center" maxlength="4" placeholder="YYYY">
         <input type="hidden" class="compound-date-output" name="{{ $name }}" value="{{ $orig }}" />
     </div>
+
+    @endif
    
 
 @overwrite
