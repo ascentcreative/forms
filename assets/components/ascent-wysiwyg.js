@@ -3,8 +3,6 @@
 
 // ******
 // Code (c) Kieran Metcalfe / Ascent Creative 2021
-CKEDITOR.disableAutoInline = true;
-
 $.ascent = $.ascent?$.ascent:{};
 
 var Wysiwyg = {
@@ -27,6 +25,8 @@ var Wysiwyg = {
         let palette = $(this.element).data('palette');
 
         let self = this;
+
+        CKEDITOR.disableAutoInline = true;
 
         this.ck = CKEDITOR.inline( 'edit-' + unid,
             {  
