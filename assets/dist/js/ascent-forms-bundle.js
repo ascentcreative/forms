@@ -1706,7 +1706,6 @@ observer.observe(document, {
 // ******
 // Code (c) Kieran Metcalfe / Ascent Creative 2021
 
-CKEDITOR.disableAutoInline = true;
 $.ascent = $.ascent ? $.ascent : {};
 var Wysiwyg = {
   ck: null,
@@ -1722,6 +1721,7 @@ var Wysiwyg = {
 
     var palette = $(this.element).data('palette');
     var self = this;
+    CKEDITOR.disableAutoInline = true;
     this.ck = CKEDITOR.inline('edit-' + unid, {
       extraAllowedContent: 'form; form[*]; form(*); input; input(*); input[*]; p[style]; script; script(*); script[*]; iframe; code; embed; iframe[*]; embed[*]; span(*); div(*); div(codesnippet)[*]; div[*]; codesnippet; codesnippet[contenteditable]; codesnippet[partial]; codesnippet[*]',
       filebrowserBrowseUrl: roxyFileman,
