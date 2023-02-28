@@ -260,6 +260,17 @@
     font-weight: 700;
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%);
 }
+.code-editor {
+    background: #333;
+    color: lime;
+    width: 100%;
+    resize: none;
+    font-family: monospace;
+    height:250px;
+    padding: 5px;
+    font-size: 13px;
+}
+
 .fksac-wrap.has-value > .fksac-display,
 .fksac-wrap .ra-entry {
     display: block !important;
