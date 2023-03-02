@@ -4,7 +4,7 @@
 @section('element')
 
     <div class="flex form-inline value-with-units" id="{{ nameToId($name) }}">
-        <input type="text" width="12" size="5" name="{{ $name }}[amount]" value="{{ $value['amount'] ?? '' }}" class="vwu-amount form-control text-center">
+        <input type="text" width="12" size="{{ $attributes['valuesize'] ?? 5}}" name="{{ $name }}[amount]" value="{{ $value['amount'] ?? '' }}" class="vwu-amount form-control text-center">
         &nbsp;
         <x-forms-fields-options type="select" wrapper="none" label="" name="{{ $name }}[unit]" elementClass="vwu-unit" value="{{ $value['unit'] ?? '' }}"
             :options="$units" :includeNullItem="false" />

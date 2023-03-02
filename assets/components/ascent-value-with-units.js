@@ -17,31 +17,18 @@ var ValueWithUnits = {
 
         $(this.element).on('change', 'input, select', function(e) {
             console.log('VWU change');
-            $out = $(self.element).find('INPUT.vwu-amount').val() + $(self.element).find('SELECT.vwu-unit').val();
 
-            $(self.element).find('.vwu-output').val($out);
+            let val = $(self.element).find('INPUT.vwu-amount').val();
+            let unit = $(self.element).find('SELECT.vwu-unit').val();
+            let out = '';
+            if(val) {
+                out = val + unit;
+            }
+
+            $(self.element).find('.vwu-output').val(out);
             // $('input[name="{{ $name }}"]').val($out);
         });
 
-        // $(this.element).on('keyup', '.cd-day, .cd-month', function(event) {
-        //     if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)){
-        //         let len = 2;
-        //         if($(this).val().length == len) {
-        //             let next = $(this).nextAll('input')[0];
-        //             if(next) {
-        //                 next.focus();
-        //             }
-                    
-        //         }
-        //     }
-        // });
-
-        //this.element.val('');
-
-
-        // this.addToken('test new');
-
-        // this.addToken('Tag 2', 2);
 
     }
 

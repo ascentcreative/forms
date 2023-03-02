@@ -21,22 +21,34 @@ class ValueWithUnits extends Component
      *
      * @return void
      */
-    public function __construct($label, $name, $value, $units, $wrapper="bootstrapformgroup", $class='')
+    public function __construct($label, $name, $value, $units, $wrapper="bootstrapformgroup", $class='', $preserveUnitKeys=false, $allowStringValue=false)
     {
      
         $this->orig = $value;
 
-        $this->units = collect($units)->mapWithKeys(function($item, $key) {
-            return [$item => $item];
-        })->toArray();
+        if(!$preserveUnitKeys) {
+            $this->units = collect($units)->mapWithKeys(function($item, $key) {
+                return [$item => $item];
+            })->toArray();
+        } else {
+            $this->units = $units;
+        }
 
-        // $value="50px";
-        
+
         // parse incoming value...
         if(!is_null($value) && $value != '') {
             
-            preg_match('/(?<amount>\-?\d*\.?\d+)\s?(?<unit>' . join('|', $units) . '+)/', $value, $matches);
-            // dd($matches);
+            if($allowStringValue) {
+                $unitMatch = join('|', array_filter(array_keys($units)));
+                $pattern = '/(?<amount>.*?(?=(' . $unitMatch . '|$)))?(?<unit>' . $unitMatch . ')?/';
+                preg_match($pattern, $value, $matches);
+            } else {
+                preg_match('/(?<amount>\-?\d*\.?\d+)\s?(?<unit>' . join('|', $units) . '+)/', $value, $matches);
+            }
+
+            // dump($pattern);
+            // dump($matches);
+
             $this->value=$matches;
 
         }
