@@ -125,7 +125,8 @@ trait Structural {
     public function getElement($name) {
 
         $idx = collect($this->children)->pluck('name')->search($name);
-        if($idx) {
+
+        if($idx !== false) {
             return $this->children[$idx];
         } else {
             foreach($this->children as $child) {
