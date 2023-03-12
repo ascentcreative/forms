@@ -1,4 +1,4 @@
-<div id="{{$name}}-wrapper">
+{{-- <div id="{{$name}}-wrapper"> --}}
 @yield('element')
 
 @if($errors->first($name))
@@ -20,6 +20,6 @@
 
     @endif
     <div class="error-display" for="{{ $name }}"></div>
-</div>
+{{-- </div> --}}
 
 @include('cms::components.form.support.charlimit')
