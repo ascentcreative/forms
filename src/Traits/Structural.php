@@ -56,8 +56,10 @@ trait Structural {
                 if(method_exists($child, 'findElementContaining')) {
                     $match = $child->findElementContaining($name);
                     if(!is_null($match)) {
-                        return $child;
+                        return $match;
                     }
+                } else {
+                   
                 }
             }
         }
