@@ -72,6 +72,7 @@ class FormsServiceProvider extends ServiceProvider
     
 
     Blade::component('forms-fields-blockselect', 'AscentCreative\Forms\Components\Fields\BlockSelect');
+    Blade::component('forms-fields-toggleswitch', 'AscentCreative\Forms\Components\Fields\ToggleSwitch');
     Blade::component('forms-fields-foreignkeyselect', 'AscentCreative\Forms\Components\Fields\ForeignKeySelect');
     Blade::component('forms-fields-hasmany', 'AscentCreative\Forms\Components\Fields\HasMany');
     Blade::component('forms-fields-relationautocomplete', 'AscentCreative\Forms\Components\Fields\RelationAutocomplete');
@@ -107,6 +108,7 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('cms-form-options', 'AscentCreative\Forms\Components\Fields\Options');
     Blade::component('cms-form-textarea', 'AscentCreative\Forms\Components\Fields\Textarea');
     Blade::component('cms-form-code', 'AscentCreative\Forms\Components\Fields\Code');
+    
     
     
     Blade::component('cms-form-blockselect', 'AscentCreative\Forms\Components\Fields\BlockSelect');
