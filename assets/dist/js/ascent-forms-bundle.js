@@ -1702,6 +1702,32 @@ $.extend($.ascent.SubformLoader, {});
 $(document).ready(function () {
   $('.subform-loader').subformloader();
 }); // ******
+// Code (c) Kieran Metcalfe / Ascent Creative 2022
+
+$.ascent = $.ascent ? $.ascent : {};
+var ToggleSwitch = {
+  // // Default options.
+  // options: {
+  // },
+  _init: function _init() {
+    var self = this;
+    console.log('TS init');
+    $(this.element).on('click', 'input', function (e) {
+      self.updateUI();
+    });
+    this.updateUI();
+    this.element.addClass("initialised");
+  },
+  updateUI: function updateUI() {
+    $(this.element).find('label').removeClass('selected');
+    $(this.element).find('input:checked').parents('label').addClass('selected');
+  }
+};
+$.widget('ascent.toggleswitch', ToggleSwitch);
+$.extend($.ascent.ToggleSwitch, {});
+$(document).ready(function () {
+  $('.toggle-switch').not('.initialised').toggleswitch();
+}); // ******
 // ******
 // Code (c) Kieran Metcalfe / Ascent Creative 2021
 

@@ -1,5 +1,3 @@
-
-
 /** toggle switch */
 .toggle-switch {
     display: flex;
@@ -32,7 +30,13 @@
     border-bottom-right-radius: 5px;
 }
 
-.toggle-switch label:not(:has(input:checked)) {
+
+/* disabled until Firefox supports :has() */
+/* Requires a jQuery widget just for this... */
+/*
+.toggle-switch label:not(:has(input:checked)) { */
+.toggle-switch label:not(.selected) {
     background: #ccc;
 }
+
 
