@@ -560,9 +560,7 @@
     background: #ccc;
 }
 
-.filter-tags:not(:has(.badge:nth-child(2))) .toggle-switch {
-    display: none;
-}
+
 .wysiwyg-editor.empty [contenteditable][placeholder]:before {
     /* background: red; */
     content: attr(placeholder);

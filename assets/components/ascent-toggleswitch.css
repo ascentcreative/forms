@@ -36,6 +36,3 @@
     background: #ccc;
 }
 
-.filter-tags:not(:has(.badge:nth-child(2))) .toggle-switch {
-    display: none;
-}
