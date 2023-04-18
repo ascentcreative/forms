@@ -1721,6 +1721,10 @@ var ToggleSwitch = {
   updateUI: function updateUI() {
     $(this.element).find('label').removeClass('selected');
     $(this.element).find('input:checked').parents('label').addClass('selected');
+  },
+  clear: function clear() {
+    $(this.element).find('input').prop('checked', false);
+    this.updateUI();
   }
 };
 $.widget('ascent.toggleswitch', ToggleSwitch);

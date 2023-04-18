@@ -28,6 +28,11 @@ var ToggleSwitch = {
     updateUI: function() {
         $(this.element).find('label').removeClass('selected');
         $(this.element).find('input:checked').parents('label').addClass('selected');
+    },
+
+    clear: function() {
+        $(this.element).find('input').prop('checked', false);
+        this.updateUI();
     }
 
 }
