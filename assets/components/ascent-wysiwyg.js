@@ -19,16 +19,61 @@ var Wysiwyg = {
 
         this.unid = unid;
 
+        
+        let self = this;
+
+        CKEDITOR.disableAutoInline = true;
+       
+        $(this.element).addClass('initialised');
+        this.checkEmpty()
+
+        console.log($(this.element).data());
+
+        if($(this.element).data('alwayson') == 1) {
+
+            this.createEditor();
+
+        } else {
+        
+            $(this.element).on('dblclick', function() {
+                // alert("dblcick");   
+            
+                
+                self.createEditor();
+
+
+                // console.log(self.ck);
+
+                self.ck.on('blur', function() {
+                //    alert('blur ck');
+                    $(self.element).removeClass("active");
+                this.destroy();
+                self.ck = null;
+                $('#edit-' + self.unid).attr('contenteditable', false);
+                });
+
+                $('#edit-' + self.unid).focus();
+
+
+            });
+
+        }
+
+    },
+
+    createEditor: function() {
+
         let roxyFileman = '/ascentcore/fileman/index.html'; 
 
         let toolbar = $(this.element).data('toolbar'); //this.options.toolbar;
         let palette = $(this.element).data('palette');
 
-        let self = this;
 
-        CKEDITOR.disableAutoInline = true;
+        $(this.element).addClass("active");
 
-        this.ck = CKEDITOR.inline( 'edit-' + unid,
+        $('#edit-' + this.unid).attr('contenteditable', true);
+
+        this.ck = CKEDITOR.inline( 'edit-' + this.unid,
             {  
                 extraAllowedContent : 'form; form[*]; form(*); input; input(*); input[*]; p[style]; script; script(*); script[*]; iframe; code; embed; iframe[*]; embed[*]; span(*); div(*); div(codesnippet)[*]; div[*]; codesnippet; codesnippet[contenteditable]; codesnippet[partial]; codesnippet[*]', 
                 filebrowserBrowseUrl:roxyFileman,
@@ -47,18 +92,17 @@ var Wysiwyg = {
 
         );
 
+        let self = this;
+
         this.ck.on('change', function(e) {
-            // update the Textarea and fire off a change event (used by Form Dirty checks);
-            $('#output-' + unid).val($('#edit-' + unid).html());
-            $('#output-' + unid).change();
-
-            self.checkEmpty();
-
-            // $('#output-' + unid).trigger('change');
-        });
-
-        $(this.element).addClass('initialised');
-        this.checkEmpty()
+                // update the Textarea and fire off a change event (used by Form Dirty checks);
+                $('#output-' + self.unid).val($('#edit-' + self.unid).html());
+                $('#output-' + self.unid).change();
+    
+                self.checkEmpty();
+    
+                // $('#output-' + unid).trigger('change');
+            });
 
     },
 
