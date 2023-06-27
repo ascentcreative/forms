@@ -12,7 +12,7 @@
             data-preservefilename="{{ $preserveFilename ? 'true':'false' }}"
         >
 
-        <input type="file" class="ajaxupload-file" name="{{ $name }}[upload]" @if($accept) accept="{{ join(',', $accept) }}" @endif id="{{nameToId($name)}}-upload">
+        <input type="file" class="ajaxupload-file" @if($accept) accept="{{ join(',', $accept) }}" @endif id="{{nameToId($name)}}-upload">
 
         <label class="ajaxupload-ui" for="{{ nameToId($name) }}-upload">
         
