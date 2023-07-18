@@ -1,16 +1,21 @@
-.wysiwyg-editor.empty [contenteditable][placeholder]:before {
+.wysiwyg-editor.empty [placeholder]:before {
     /* background: red; */
     content: attr(placeholder);
     color: #ccc;
     display: block;
-    position: absolute;
+   
     top: 0;
     left: 0;
     width: 100%;
     
 }
 
+.wysiwyg-editor.empty.active [placeholder]:before {
+    position: absolute; 
+}
+
 .wysiwyg-editor {
     cursor: default;
+    position:relative;
 }
 

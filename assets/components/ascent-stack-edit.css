@@ -145,11 +145,11 @@
     width: 10px;
 }
 
-.ui-sortable-placeholder {
+.blockitem.ui-sortable-placeholder {
     border-radius: 10px;
     background: #ececec;
     visibility: visible !important;
-    height: 100%;
+    /* height: 100%; */
     margin: 0;
     padding: 0;
 }
