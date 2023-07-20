@@ -583,6 +583,10 @@ var ColourField = {
       hideAfterPaletteSelect: true,
       togglePaletteOnly: false
     });
+  },
+  destroy: function destroy() {
+    // alert('destroyiig');
+    $(this.element).removeClass('initialised').spectrum('destroy'); // this.element.
   }
 };
 $.widget('ascent.colourfield', ColourField);

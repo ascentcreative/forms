@@ -35,6 +35,12 @@ var ColourField = {
 
 
 
+    },
+
+    destroy: function() {
+        // alert('destroyiig');
+        $(this.element).removeClass('initialised').spectrum('destroy');
+        // this.element.
     }
 
 }
