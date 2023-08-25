@@ -303,6 +303,14 @@
     content: '*';
 }
 
+/* use a specific class to flag as optional */
+.compound-form-element:.optional label:after {
+    content: ' (optional)';
+    color: #999;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
 .compound-form-element input,
 .compound-form-element select {
     padding: 0;
