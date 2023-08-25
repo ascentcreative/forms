@@ -273,11 +273,12 @@
 
 :root {
     --cfe-active: lightblue;
+    --cfe-padding: 0.5rem;
 }
 
 
 .compound-form-element {
-    padding: 0.5rem;
+    padding: var(--cfe-padding); 
     height: 3.5rem;
     position: relative;
     border: 1px solid #ccc;
@@ -293,6 +294,9 @@
     line-height: 1;
     font-size: 1rem;
     color: #777;
+   
+    left: var(--cfe-padding); 
+    right: var(--cfe-padding); 
 }
 
 .compound-form-element.required label {
@@ -303,11 +307,17 @@
     content: '*';
 }
 
+.compound-form-element.optional label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
 /* use a specific class to flag as optional */
-.compound-form-element:.optional label:after {
+.compound-form-element.optional label:after {
     content: ' (optional)';
     color: #999;
-    font-size: 0.8rem;
+    font-size: 0.8em; /* em so relative to parent when shrunk */
     font-style: italic;
 }
 
@@ -322,8 +332,8 @@
     /* width: 100%; */
     position: absolute;
     /* inset: 0; */
-    right: 0.5rem;
-    left: 0.5rem;
+    right: var(--cfe-padding); 
+    left: var(--cfe-padding); 
     bottom: 5px;
 }
 
@@ -370,9 +380,17 @@
     content: '\F282';
     color: #777;
     position: absolute;
-    right: 0.5rem;
+    right: var(--cfe-padding); 
     top: 1rem;
     pointer-events: none;
+}
+
+.compound-form-element ~ .cfe-error .alert {
+    background: none;
+    border: none;
+    padding: 0 var(--cfe-padding);
+    color: red;
+    margin: 0;
 }
 
 
