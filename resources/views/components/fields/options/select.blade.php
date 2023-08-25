@@ -5,7 +5,7 @@
 
 @section('element')
 
-<select name="{{ $name }}" class="{{ $attributes['elementClass'] }} form-control">
+<select name="{{ $name }}" class="{{ $attributes['elementClass'] }} @if($wrapper != 'compound') form-control @endif">
 
 @if($includeNullItem) 
 

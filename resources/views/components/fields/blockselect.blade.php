@@ -8,7 +8,7 @@
 
     <div class="cms-blockselect cms-blockselect-columns-{{$columns}} cms-blockselect-{{ $layout }}" data-max-select="{{$maxSelect}}" @isset($maxHeight) style="max-height: {{$maxHeight}}; overflow-y: scroll"@endisset>
     @foreach($options as $key=>$opt)
-        <label for="{{nameToId($name)}}-{{ Str::slug($key) }}" class="cms-blockselect-option">
+        <label for="{{nameToId($name)}}-{{ Str::slug($key) }}" class="cms-blockselect-option" tabindex="0">
             <input type="checkbox" name="{{$name}}{{$maxSelect!=1?'[]':''}}" id="{{nameToId($name)}}-{{ Str::slug($key) }}" value="{{$key}}"
 
                 @if( (is_array($value) && in_array($key, $value)) || (!is_array($value) && $key == $value) ) checked @endif

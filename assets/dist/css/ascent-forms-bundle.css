@@ -271,6 +271,101 @@
     font-size: 13px;
 }
 
+:root {
+    --cfe-active: lightblue;
+}
+
+
+.compound-form-element {
+    padding: 0.5rem;
+    height: 3.5rem;
+    position: relative;
+    border: 2px solid #ccc;
+}
+
+.compound-form-element label {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    transition: all 0.25s;
+    top: 1.2rem;
+    line-height: 1;
+    font-size: 1rem;
+    color: #777;
+}
+
+.compound-form-element.required label {
+    color: #333;
+}
+
+.compound-form-element.required label:after {
+    content: '*';
+}
+
+.compound-form-element input,
+.compound-form-element select {
+    padding: 0;
+    /* padding-top: 0.3rem; */
+    margin: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    /* width: 100%; */
+    position: absolute;
+    /* inset: 0; */
+    right: 0.5rem; 5px;
+    left: 0.5rem;
+    bottom: 5px;
+}
+
+/* .compound-form-element:has(input:focus) label, */
+/* .compound-form-element:has(input:not(:empty)) label, */
+.compound-form-element.active label,
+.compound-form-element.has-value label {
+    font-size: 0.8rem;
+    top: 5px;
+    color: #777;
+}
+
+.compound-form-element select {
+    -webkit-appearance: none;
+    appearance: none;
+    /* display:none; */
+    opacity: 0;
+    border: none;
+    padding: 0;
+    top: 0;
+    /* width: 100%; */
+    /* background: #fcfcfc; */
+}
+
+.compound-form-element.active select, 
+.compound-form-element.has-value select{
+    display: block;
+    outline: none;
+    opacity: 1;
+    top: auto;
+}
+
+
+.compound-form-element:has(input:focus), .compound-form-element:has(:focus) {
+    border-width: 2px;
+    border-color: var(--cfe-active);
+}
+
+.compound-form-element:has(select):after {
+    display: block;
+    font-family: 'bootstrap-icons';
+    content: '\F282';
+    color: #777;
+    position: absolute;
+    right: 0.5rem;
+    top: 1rem;
+    pointer-events: none;
+}
+
+
+
 .fksac-wrap.has-value > .fksac-display,
 .fksac-wrap .ra-entry {
     display: block !important;
@@ -292,6 +387,7 @@
 .simple-form-element label {
     margin-bottom: 0.25rem! important;
 }
+
 
 /* .input-password {
     position: relative;
