@@ -26,7 +26,7 @@ var CompoundFormElement = {
             $(self.element).removeClass("active");
         });
 
-        $(this.element).on('change', 'input, select', function() {
+        $(this.element).on('input', 'input, select', function() {
             if($(this).val() == '') {
                 $(self.element).removeClass("has-value");
             } else {
@@ -34,7 +34,21 @@ var CompoundFormElement = {
             }
         });
 
+       
+
+        window.setInterval(function () {
+
+            if($(this.element).find('input, select').val() == '') {
+                $(self.element).removeClass("has-value");
+            } else {
+                $(self.element).addClass("has-value");
+            }
+            
+        }, 100);
+
     }
+
+   
 
 }
 

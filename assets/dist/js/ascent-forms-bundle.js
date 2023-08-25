@@ -682,13 +682,20 @@ var CompoundFormElement = {
     $(this.element).on('blur', 'input, select', function (e) {
       $(self.element).removeClass("active");
     });
-    $(this.element).on('change', 'input, select', function () {
+    $(this.element).on('input', 'input, select', function () {
       if ($(this).val() == '') {
         $(self.element).removeClass("has-value");
       } else {
         $(self.element).addClass("has-value");
       }
     });
+    window.setInterval(function () {
+      if ($(this.element).find('input, select').val() == '') {
+        $(self.element).removeClass("has-value");
+      } else {
+        $(self.element).addClass("has-value");
+      }
+    }, 100);
   }
 };
 $.widget('ascent.compoundformelement', CompoundFormElement);

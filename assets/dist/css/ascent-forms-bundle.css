@@ -280,7 +280,8 @@
     padding: 0.5rem;
     height: 3.5rem;
     position: relative;
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
+    background: white;
 }
 
 .compound-form-element label {
@@ -288,7 +289,7 @@
     margin: 0;
     position: absolute;
     transition: all 0.25s;
-    top: 1.2rem;
+    top: 33%;
     line-height: 1;
     font-size: 1rem;
     color: #777;
@@ -313,7 +314,7 @@
     /* width: 100%; */
     position: absolute;
     /* inset: 0; */
-    right: 0.5rem; 5px;
+    right: 0.5rem;
     left: 0.5rem;
     bottom: 5px;
 }
@@ -339,6 +340,8 @@
     /* background: #fcfcfc; */
 }
 
+
+
 .compound-form-element.active select, 
 .compound-form-element.has-value select{
     display: block;
@@ -349,7 +352,7 @@
 
 
 .compound-form-element:has(input:focus), .compound-form-element:has(:focus) {
-    border-width: 2px;
+    /* border-width: 1px; */
     border-color: var(--cfe-active);
 }
 
