@@ -273,6 +273,7 @@
 
 :root {
     --cfe-active: lightblue;
+    --cfe-error: #cc0000;
     --cfe-padding: 0.5rem;
 }
 
@@ -389,11 +390,18 @@
     background: none;
     border: none;
     padding: 0 var(--cfe-padding);
-    color: red;
+    color: var(--cfe-error);
     margin: 0;
 }
 
 
+/* using HAS for now - only FF affected, and it just means element isn't bordered */
+div:has(.alert) > .compound-form-element {
+    border-color: var(--cfe-error);
+}
+div:has(.alert) > .compound-form-element label {
+    color: var(--cfe-error);
+}
 
 .fksac-wrap.has-value > .fksac-display,
 .fksac-wrap .ra-entry {
