@@ -881,6 +881,7 @@ var HasMany = {
       if (confirm("Remove this item?")) {
         $(this).parents('.hasmany-item').remove();
         self.updateIndexes();
+        $(self.element).trigger('change');
       }
     });
     this.updateIndexes();
@@ -893,6 +894,7 @@ var HasMany = {
   appendItem: function appendItem(e) {
     $(e.data.hasmany.element).find('.hasmany-items').append(e.response);
     e.data.hasmany.updateIndexes();
+    $(e.data.hasmany.element).trigger('change');
   },
 
   /**
@@ -905,6 +907,7 @@ var HasMany = {
     idx = elm.data('idx');
     $($(e.data.hasmany.element).find('.hasmany-item')[idx]).replaceWith(elm);
     e.data.hasmany.updateIndexes();
+    $(e.data.hasmany.element).trigger('change');
   },
 
   /**
