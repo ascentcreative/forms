@@ -1,5 +1,5 @@
 <div>
-    <div class="xborder rounded compound-form-element @if($attributes['required']=='true') required @elseif($attributes['optional'] == 'true') optional @endif">
+    <div class="xborder rounded compound-form-element {{ $class }} @if($attributes['required']=='true') required @elseif($attributes['optional'] == 'true') optional @endif">
         <label for="{{ $name }}">{{ $label }}</label>
         @yield('element')
     </div>
