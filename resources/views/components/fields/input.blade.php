@@ -10,7 +10,7 @@
     @endif
 
     @if($preelement)
-    {{ $preelement }}&nbsp;
+    <span class="preelement">{{ $preelement }}&nbsp;</span>
     @endif
 
     @if($attributes['readonly'] && $type != 'hidden')
@@ -43,7 +43,7 @@
     @endif
 
     @if($postelement)
-       {{ $postelement }}
+       <span class="postelement">{{ $postelement }}</span>
     @endif
 
     @if($preelement || $postelement)

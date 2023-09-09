@@ -34,6 +34,7 @@
             checked
             @endif
             
+            class="{{ $attributes['control-class'] }}" 
             />
 
             @if($labelAfter)

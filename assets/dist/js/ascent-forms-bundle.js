@@ -689,6 +689,11 @@ var CompoundFormElement = {
         $(self.element).addClass("has-value");
       }
     });
+
+    if ($(this.element).find('input, select').val() != '') {
+      $(this.element).addClass("has-value");
+    }
+
     window.setTimeout(function () {
       if ($(self.element).find('input, select').is(':-webkit-autofill')) {
         $(self.element).addClass("has-value");

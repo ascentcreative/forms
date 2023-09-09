@@ -34,7 +34,9 @@ var CompoundFormElement = {
             }
         });
 
-       
+        if($(this.element).find('input, select').val() != '') {
+            $(this.element).addClass("has-value");
+        }
 
         window.setTimeout(function () {
       

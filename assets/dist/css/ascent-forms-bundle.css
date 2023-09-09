@@ -322,8 +322,16 @@
     font-style: italic;
 }
 
+.compound-form-element .form-inline,
 .compound-form-element input,
 .compound-form-element select {
+
+    position: absolute;
+    /* inset: 0; */
+    right: var(--cfe-padding); 
+    left: var(--cfe-padding); 
+    bottom: 5px;
+
     padding: 0;
     /* padding-top: 0.3rem; */
     margin: 0;
@@ -331,11 +339,22 @@
     outline: 0;
     background: transparent;
     /* width: 100%; */
-    position: absolute;
-    /* inset: 0; */
-    right: var(--cfe-padding); 
-    left: var(--cfe-padding); 
-    bottom: 5px;
+   
+}
+
+.compound-form-element .form-inline input {
+    position: relative;
+    inset: auto;   
+}
+
+.compound-form-element input {
+    width: 100%;
+    flex-shrink: 1;
+}
+
+.compound-form-element .preelement, 
+.compound-form-element .postelement {
+    display: none;
 }
 
 /* .compound-form-element:has(input:focus) label, */
@@ -345,6 +364,14 @@
     font-size: 0.8rem;
     top: 5px;
     color: #777;
+}
+
+
+.compound-form-element.active .preelement,
+.compound-form-element.has-value .preelement,
+.compound-form-element.active .postelement,
+.compound-form-element.has-value .postelement {
+    display: block;
 }
 
 .compound-form-element select {
