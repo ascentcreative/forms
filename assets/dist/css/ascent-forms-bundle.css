@@ -384,6 +384,13 @@
     top: 0;
     /* width: 100%; */
     /* background: #fcfcfc; */
+
+    height: auto;
+}
+
+.compound-form-element select:focus {
+    background: transparent;
+    box-shadow: none;
 }
 
 
@@ -420,6 +427,7 @@
     color: var(--cfe-error);
     margin: 0;
 }
+
 
 
 /* using HAS for now - only FF affected, and it just means element isn't bordered */
