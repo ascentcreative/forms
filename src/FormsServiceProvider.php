@@ -66,6 +66,7 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('forms-fields-wysiwyg', 'AscentCreative\Forms\Components\Fields\Wysiwyg');
     Blade::component('forms-fields-options', 'AscentCreative\Forms\Components\Fields\Options');
     Blade::component('forms-fields-textarea', 'AscentCreative\Forms\Components\Fields\Textarea');
+    Blade::component('forms-fields-contenteditable', 'AscentCreative\Forms\Components\Fields\ContentEditable');
     Blade::component('forms-fields-fileupload', 'AscentCreative\Forms\Components\Fields\FileUpload');
     Blade::component('forms-fields-value-with-units', 'AscentCreative\Forms\Components\Fields\ValueWithUnits');
     Blade::component('forms-fields-code', 'AscentCreative\Forms\Components\Fields\Code');

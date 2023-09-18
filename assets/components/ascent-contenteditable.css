@@ -1,0 +1,35 @@
+.forms-contenteditable textarea {
+    display: none;   
+}
+
+.forms-contenteditable {
+    position: relative;
+    /* inset: 0; */
+    /* right: var(--cfe-padding);  */
+    /* left: var(--cfe-padding);  */
+    bottom: 5px;
+    top: 1rem;
+}
+
+
+.compound-form-element .fce-edit {
+
+    width: 100%;
+
+    display: inline-block; /* forces \r\n line breaks rather than HTML */
+    
+     /* force wrapping */
+     white-space: pre-wrap;       /* css-3 */
+     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap;      /* Opera 4-6 */
+     white-space: -o-pre-wrap;    /* Opera 7 */
+     word-wrap: break-word;  
+     word-break: break-word;
+
+    /* position: sticky;
+    bottom: 5px; */
+
+    outline: none;
+    padding-bottom: 1rem;
+
+}

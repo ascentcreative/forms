@@ -15,37 +15,49 @@ var CompoundFormElement = {
 
         $(this.element).on('click', function(e) {
             $(self.element).addClass("active");
-            $(this).find('input').focus();
+            $(this).find('input, [contenteditable]').focus();
         });
 
-        $(this.element).on('focus', 'input, select', function(e) {
+        $(this.element).on('focus', 'input, select, [contenteditable]', function(e) {
             $(self.element).addClass("active");
         });
 
-        $(this.element).on('blur', 'input, select', function(e) {
+        $(this.element).on('blur', 'input, select, .fce-edit', function(e) {
             $(self.element).removeClass("active");
         });
 
-        $(this.element).on('input', 'input, select', function() {
-            if($(this).val() == '') {
+        $(this.element).on('input', 'input, select, textarea, .fce-edit', function() {
+            let val = '';
+            if(this.tagName == 'DIV') {
+                val = $(this).html();
+            } else {
+                val = $(this).val();
+            }
+            if(val == '') {
                 $(self.element).removeClass("has-value");
             } else {
                 $(self.element).addClass("has-value");
             }
         });
 
-        if($(this.element).find('input, select').val() != '') {
+        if($(this.element).find('input, select, textarea').val() != '') {
+            self.checkValue();
             $(this.element).addClass("has-value");
         }
 
         window.setTimeout(function () {
       
-            if($(self.element).find('input, select').is(':-webkit-autofill')) {
+            let elm = $(self.element).find('input, select');
+            if(elm.length > 0 && elm.is(':-webkit-autofill')) {
                 $(self.element).addClass("has-value");
             }
             
         }, 100);
 
+    },
+
+    checkValue: function () {
+        
     }
 
    

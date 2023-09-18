@@ -280,13 +280,13 @@
 
 .compound-form-element {
     padding: var(--cfe-padding); 
-    height: 3.5rem;
+    min-height: 3.5rem;
     position: relative;
     border: 1px solid #ccc;
     background: white;
 }
 
-.compound-form-element label {
+.compound-form-element > label {
     padding: 0;
     margin: 0;
     position: absolute;
@@ -295,6 +295,9 @@
     line-height: 1;
     font-size: 1rem;
     color: #777;
+
+    z-index: 12;
+    pointer-events: none;
    
     left: var(--cfe-padding); 
     right: var(--cfe-padding); 
@@ -324,7 +327,10 @@
 
 .compound-form-element .form-inline,
 .compound-form-element input,
-.compound-form-element select {
+.compound-form-element select
+/* , */
+/* .compound-form-element textarea */
+ {
 
     position: absolute;
     /* inset: 0; */
@@ -359,8 +365,8 @@
 
 /* .compound-form-element:has(input:focus) label, */
 /* .compound-form-element:has(input:not(:empty)) label, */
-.compound-form-element.active label,
-.compound-form-element.has-value label {
+.compound-form-element.active > label,
+.compound-form-element.has-value > label {
     font-size: 0.8rem;
     top: 5px;
     color: #777;
@@ -438,6 +444,76 @@ div:has(.alert) > .compound-form-element label {
     color: var(--cfe-error);
 }
 
+
+.compound-form-element .form-control {
+    border: none;
+    background: transparent;
+}
+
+/* ajaxupload */
+.compound-form-element .ajaxupload label {
+    display: none;
+}
+
+.compound-form-element input[type=file] {
+    background: blue;
+    opacity: 0;
+}
+
+
+.compound-form-element .fileupload .fileupload-ui .fileupload-display {
+    padding: 0;
+    align-items: flex-end;
+}
+
+.compound-form-element .fileupload:not(.has-file):not(.file-uploading):not(.error) .fileupload-ui .fileupload-text {
+    display: none;
+}
+
+.compound-form-element .fileupload .fileupload-ui .fileupload-reset {
+   line-height: 1.3;
+}
+
+.compound-form-element .fileupload .fileupload-ui:after {
+    /* background-color: var(--cfe-active); */
+    border: none;
+    border-radius: 3px
+}
+.forms-contenteditable textarea {
+    display: none;   
+}
+
+.forms-contenteditable {
+    position: relative;
+    /* inset: 0; */
+    /* right: var(--cfe-padding);  */
+    /* left: var(--cfe-padding);  */
+    bottom: 5px;
+    top: 1rem;
+}
+
+
+.compound-form-element .fce-edit {
+
+    width: 100%;
+
+    display: inline-block; /* forces \r\n line breaks rather than HTML */
+    
+     /* force wrapping */
+     white-space: pre-wrap;       /* css-3 */
+     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap;      /* Opera 4-6 */
+     white-space: -o-pre-wrap;    /* Opera 7 */
+     word-wrap: break-word;  
+     word-break: break-word;
+
+    /* position: sticky;
+    bottom: 5px; */
+
+    outline: none;
+    padding-bottom: 1rem;
+
+}
 .fksac-wrap.has-value > .fksac-display,
 .fksac-wrap .ra-entry {
     display: block !important;
