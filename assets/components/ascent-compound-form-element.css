@@ -18,7 +18,8 @@
     margin: 0;
     position: absolute;
     transition: all 0.25s;
-    top: 33%;
+    /* top: 33%; */
+    top: 1.1rem;
     line-height: 1;
     font-size: 1rem;
     color: #777;

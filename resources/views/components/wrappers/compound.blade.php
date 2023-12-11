@@ -3,5 +3,10 @@
         <label for="{{ $name }}">{{ $label }}</label>
         @yield('element')
     </div>
+    @isset($attributes['description'])
+        <small class="form-text text-muted">
+            {!! $attributes['description'] !!}
+        </small>
+    @endisset
     <div class="cfe-error error-display" for="{{ $name }}"></div>
 </div>
