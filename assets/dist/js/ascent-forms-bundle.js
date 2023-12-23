@@ -739,7 +739,8 @@ $.ascent = $.ascent ? $.ascent : {};
 var ContentEditable = {
   ck: null,
   options: {
-    toolbar: ''
+    toolbar: '',
+    pasteTextOnly: false
   },
   unid: '',
   _init: function _init() {
@@ -747,12 +748,55 @@ var ContentEditable = {
     this.unid = unid;
     var self = this;
     $(this.element).addClass('initialised');
+    self.options.pasteTextOnly = self.element.data('pastetextonly');
     /**
      * Handle updates to content div. 
      */
 
     $(this.element).on('input', '.fce-edit', function (e) {
       $(self.element).find('textarea').val($(this).html());
+    }); // ** Strip out HTML on paste **
+
+    $(this.element).on('paste', '.fce-edit', function (e) {
+      if (!self.options.pasteTextOnly) {
+        return;
+      }
+
+      e.preventDefault();
+      e.stopPropagation();
+      clipboardData = e.originalEvent.clipboardData || window.clipboardData;
+      pastedData = clipboardData.getData('Text'); // paste the text only content in at the cursor position:
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+
+        if (sel.getRangeAt && sel.rangeCount) {
+          var range = sel.getRangeAt(0);
+          var el = document.createElement("div");
+          el.innerHTML = pastedData;
+          var frag = document.createDocumentFragment(),
+              node,
+              lastNode;
+
+          while (node = el.firstChild) {
+            lastNode = frag.appendChild(node);
+          }
+
+          range.insertNode(frag); // Preserve the selection
+
+          if (lastNode) {
+            range = range.cloneRange();
+            range.setStartAfter(lastNode);
+            range.collapse(true);
+            sel.removeAllRanges();
+            sel.addRange(range);
+          }
+        }
+      } else if (document.selection && document.selection.createRange) {
+        document.selection.createRange().text = pastedData;
+      }
+
+      $(this).trigger('input');
     });
   }
 };

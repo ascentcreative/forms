@@ -20,13 +20,15 @@ class ContentEditable extends Component
 
     public $charlimit;
 
+    public $pasteTextOnly;
+
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($label, $name, $value, $rows=null, $cols=null, $wrapper="bootstrapformgroup", $class='', $charlimit=null)
+    public function __construct($label, $name, $value, $rows=null, $cols=null, $pasteTextOnly=false, $wrapper="bootstrapformgroup", $class='', $charlimit=null)
     // public function __construct()
     {
         
@@ -41,6 +43,9 @@ class ContentEditable extends Component
         $this->class = $class;
 
         $this->charlimit = $charlimit;
+
+        // dd($pasteTextOnly);
+        $this->pasteTextOnly = $pasteTextOnly;
 
     }
 

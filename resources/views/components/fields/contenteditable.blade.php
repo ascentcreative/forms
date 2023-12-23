@@ -5,7 +5,7 @@
 
 @section('element')
 
-    <div class="forms-contenteditable">
+    <div class="forms-contenteditable" data-pastetextonly="{{ $pasteTextOnly }}">
         <div class="fce-edit" contenteditable="true" 
         @isset($attributes['min-height']) style="min-height: {{ $attributes['min-height'] }}" @endisset
         >{!! $value !!}</div>
