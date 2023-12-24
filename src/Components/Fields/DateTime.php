@@ -11,6 +11,7 @@ class DateTime extends Component
     public $name;
     public $date_value;
     public $time_value;
+    public $value;
 
     public $wrapper;
     public $class;
@@ -24,9 +25,13 @@ class DateTime extends Component
     public function __construct( $label, $name, $value, $wrapper="bootstrapformgroup", $class='')
     {
        
+        if($value) {
+            $value = ($value->format('Y-m-d H:i:s') ?? null);
+        }
+       
         $this->label = $label;
         $this->name = $name;
-        //$this->value = $value;
+        $this->value = $value;
 
       //  dd($value);
 
