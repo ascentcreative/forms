@@ -9,7 +9,7 @@
         <input type="date" name="{{$name}}[date]" value="{!! $date_value !!}" class="form-control dtf-date" />
         &nbsp;
         <input type="time" name="{{$name}}[time]" value="{!! $time_value !!}" class="form-control dtf-time" />
-        <input type="text" name="{{ $name }}" value="{{ $value }}" class="dtf-output"/>
+        <input type="hidden" name="{{ $name }}" value="{{ $value }}" class="dtf-output"/>
     </div>
 
   
