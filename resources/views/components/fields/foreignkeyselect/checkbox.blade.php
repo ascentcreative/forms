@@ -9,7 +9,7 @@
     {{-- Otherwise, values won't be deleted when the model is saved when all checkboxes have been unticked --}}
     <input type="hidden" name="{{$name}}" value=""/>
 
-    <div style="xcolumns: 3; display: grid">
+    <div style="xcolumns: 3; display: grid;">
     <?php 
      
         if($readonly) {
@@ -28,8 +28,9 @@
 
         @foreach ($opts as $opt)
       
-            <label class="col-form-label" style="display: block">
-                <input type="checkbox" name="{{$name}}[]" value="{{ $opt->$idField }}" xclass="form-control" 
+            <label class="col-form-label flex flex-align-center " style="gap: 1rem">
+                <input type="checkbox" name="{{$name}}[]" value="{{ $opt->$idField }}" 
+                    class="@isset($attributes['control-class']) {{ $attributes['control-class'] }} @endisset" 
 
                 @if(!is_null($value) && array_search($opt->$idField, $keys) !== false)
 
