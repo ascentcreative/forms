@@ -7,7 +7,6 @@
 
 $.ascent = $.ascent?$.ascent:{};
 
-
 var CharLimit = {
 		
 	max: 0,
@@ -24,8 +23,9 @@ var CharLimit = {
 		var opts = self.options;
 		
 		var elm = self.element;
-		
 
+        // alert('CL init');
+		
 		var counter = $('<SPAN class="charlimit_display" id="charlimit_' + elm.attr('id') + '"><SPAN class="charlimit_count">0</SPAN>/' + opts.max + '</SPAN>');
 
         elm.wrap('<div class="charlimit_wrap"></div>');
@@ -34,14 +34,30 @@ var CharLimit = {
 		
 		$(elm).on('keydown', function(e) {
 			
-			//self.oldval = elm.val();
+            let val = elm.val();
+            
+            if(val == '') {
+                val = elm.html();
+            }
+
+			self.oldval = val;
 			
 		});
 		
 		$(elm).on('input', function(e) {
-			
-			if(elm.val().length > self.options.max && self.options.force) {
-				elm.val(elm.val().substr(0, self.options.max));
+
+            let val = elm.val();
+            
+            if(val == '') {
+                val = elm.text();
+            }
+            
+			if(val.length > self.options.max && self.options.force) {
+                if(elm.val()) {
+				    elm.val(elm.val().substr(0, self.options.max));
+                } else {
+                    elm.html(self.oldval);
+                }
 			}
 			
 			self.update();
@@ -61,17 +77,20 @@ var CharLimit = {
 	},
 	
 	update: function() {
-		
+
         var self = this;
 		var elm = this.element;
 		var counter = $('#charlimit_' + elm.attr('id'));
-		
-		var len = elm.val().length;
-		
+
+        let len = 0;
+		if(elm.val()) {
+		    len = elm.val().length;
+        } else {
+            len = elm.text().length; // for contenteditables
+        }
+
 		$(counter).find('.charlimit_count').html(len);
-		
-		//console.log(self.options.warndistance);
-		
+				
 		if (len >= (self.options.max - self.options.warndistance)) {
 			$(counter).addClass('full'); 
 		} else {
