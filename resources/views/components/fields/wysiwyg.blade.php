@@ -12,7 +12,7 @@
 
     @if($readonly)
 
-        <div class="col-form-label border-bottom p-2" style="min-height: 2.5em;">
+        <div class="col-form-label border rounded p-2" style="min-height: 2.5em;">
          {!! nl2br($value) !!}
         </div>
 
