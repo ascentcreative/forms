@@ -9,7 +9,7 @@
     {{-- Otherwise, values won't be deleted when the model is saved when all checkboxes have been unticked --}}
     <input type="hidden" name="{{$name}}" value=""/>
 
-    <div style="xcolumns: 3; display: grid;">
+    <div style="columns: {{ $attributes['columns'] ?? 1 }}; xdisplay: grid; grid-template-columns: repeat({{ $attributes['columns'] ?? 1 }}, 1fr)">
     <?php 
      
         if($readonly) {
