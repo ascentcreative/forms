@@ -3,11 +3,7 @@
         <label for="{{ $name }}">{{ $label }}</label>
         @yield('element')
     </div>
-    @isset($attributes['description'])
-        <small class="form-text text-muted">
-            {!! $attributes['description'] !!}
-        </small>
-    @endisset
+   
     @if($errors->first(dotName($name)))
     {{-- @if($errors->first($name)) --}}
         <small class="validation-error alert alert-danger form-text" role="alert">
