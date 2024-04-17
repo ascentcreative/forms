@@ -1,6 +1,6 @@
 .ra-wrap.has-value > .ra-display,
 .ra-wrap .ra-entry {
-    display: block !important;
+    display: flex !important;
 }
 
 .ra-wrap > .ra-display,
@@ -10,4 +10,35 @@
 
 .ra-clear {
     margin-left: 10px;
+}
+
+
+.compound-form-element:not(.active):not(.has-value) .ra-wrap {
+    display: none;
+}
+
+.compound-form-element .ra-entry input {
+    width: calc(100% - (var(--cfe-padding) * 2));
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.compound-form-element .ra-display {
+    position: absolute;
+    right: var(--cfe-padding);
+    left: var(--cfe-padding);
+    bottom: 5px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    height: auto;
+    width: calc(100% - (var(--cfe-padding) * 2));
+}
+
+.ra-label {
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
