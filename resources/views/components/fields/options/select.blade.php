@@ -8,7 +8,7 @@
     @if($attributes['readonly'] && $type != 'hidden')
 
         <div class="col-form-label border-bottom p-2" style="min-height: 2.5em;">
-            {{ $value }}
+            {{ $options[$value] ?? $value }}
         </div>
 
     @else
