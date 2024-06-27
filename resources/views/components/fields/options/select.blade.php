@@ -5,28 +5,40 @@
 
 @section('element')
 
-<select name="{{ $name }}" class="{{ $attributes['elementClass'] }} @if($wrapper != 'compound') form-control @endif">
+    @if($attributes['readonly'] && $type != 'hidden')
 
-@if($includeNullItem) 
+        <div class="col-form-label border-bottom p-2" style="min-height: 2.5em;">
+            {{ $value }}
+        </div>
 
-    <option value="" @if($value == '') selected @endif>
+    @else
 
-        {!! $nullItemLabel ?? '- Select -' !!}
+        <select name="{{ $name }}" class="{{ $attributes['elementClass'] }} @if($wrapper != 'compound') form-control @endif">
 
-    </option>
+            @if($includeNullItem) 
+        
+                <option value="" @if($value == '') selected @endif>
+        
+                    {!! $nullItemLabel ?? '- Select -' !!}
+        
+                </option>
+        
+            @endif
+        
+            @foreach($options as $key=>$opt)
+        
+                <option value="{{ $key }}" @if($value == $key) selected @endif>
+        
+                    {!! $opt !!}
+        
+                </option>
+        
+            @endforeach
+        </select>
 
-@endif
+    @endif
 
-@foreach($options as $key=>$opt)
-
-    <option value="{{ $key }}" @if($value == $key) selected @endif>
-
-        {!! $opt !!}
-
-    </option>
-
-@endforeach
-</select>
+  
 
 
 @overwrite
