@@ -83,6 +83,8 @@ class FormObjectBase {
             // otherwise, stored DB values may be used for relationships
             if(count(request()->old()) > 0) {
                 $out['value'] = old(dotname($this->name), $value); // ??  $value;  
+            } else {
+                $out['value'] = $value;
             }
 
         }
@@ -136,7 +138,7 @@ class FormObjectBase {
             $value = $this->traverseData($data, $prop);
             // $value = '';
 
-            if($value) { //isset($data->$prop)) {
+            if(!is_null($value)) { //isset($data->$prop)) {
                 $this->value($value); //$data->$prop);
             } else {
                 // dump('no value for ' . $prop);
