@@ -25,7 +25,9 @@ class DateTime extends Component
     public function __construct( $label, $name, $value, $wrapper="bootstrapformgroup", $class='')
     {
        
-        if($value) {
+
+        if($value && !is_string($value)) {
+            // dd($value);
             $value = ($value->format('Y-m-d H:i:s') ?? null);
         }
        
@@ -45,8 +47,8 @@ class DateTime extends Component
 
             if (!is_null($value) && trim($value) != '') {
                 $ary = explode(" ", $value);
-                $this->date_value = $ary[0];
-                $this->time_value = $ary[1];
+                $this->date_value = $ary[0] ?? '';
+                $this->time_value = $ary[1] ?? '';
             }
 
         }
