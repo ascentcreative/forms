@@ -51,3 +51,16 @@
     @endif
 
 @overwrite
+
+{{-- Script to add jQ Autocomplete to a text input if options have been supplied --}}
+@if($autocompleteOptions)
+    @push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('input#{{ nameToId($name) }}').autocomplete({
+                    source: {!! json_encode($autocompleteOptions) !!}
+            });
+        });
+    </script>
+    @endpush
+@endif

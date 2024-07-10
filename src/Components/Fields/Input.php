@@ -35,6 +35,8 @@ class Input extends Component
     public $min;
     public $step;
 
+    public $autocompleteOptions;
+
 
     /**
      * Create a new component instance.
@@ -50,7 +52,8 @@ class Input extends Component
                                     $placeholder='',
                                     $size='',
                                     $min=0,
-                                    $step=0.01
+                                    $step=0.01,
+                                    $autocompleteOptions = null // used by text input to allow options to be set
                                     )
     {
         $this->type = $type;
@@ -73,6 +76,8 @@ class Input extends Component
         $this->size = $size;
         $this->min = $min;
         $this->step = $step;
+
+        $this->autocompleteOptions = $autocompleteOptions;
 
         $this->validators = $validators;
         $aryVld = explode("|", $validators);
