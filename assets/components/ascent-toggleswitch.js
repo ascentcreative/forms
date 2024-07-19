@@ -15,11 +15,11 @@ var ToggleSwitch = {
 
         console.log('TS init');
 
-        $(this.element).on('click', 'input', function(e) {
-            self.updateUI();
-        });
+        // $(this.element).on('click', 'input', function(e) {
+        //     self.updateUI();
+        // });
 
-        this.updateUI();
+        // this.updateUI();
 
         this.element.addClass("initialised");
       
