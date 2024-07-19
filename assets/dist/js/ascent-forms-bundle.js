@@ -1994,11 +1994,11 @@ var ToggleSwitch = {
   // },
   _init: function _init() {
     var self = this;
-    console.log('TS init');
-    $(this.element).on('click', 'input', function (e) {
-      self.updateUI();
-    });
-    this.updateUI();
+    console.log('TS init'); // $(this.element).on('click', 'input', function(e) {
+    //     self.updateUI();
+    // });
+    // this.updateUI();
+
     this.element.addClass("initialised");
   },
   updateUI: function updateUI() {
