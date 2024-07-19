@@ -5,7 +5,7 @@
 
 @section('element')
 
-<div class="toggle-switch">
+<div class="toggle-switch {{ $attributes['class'] ?? '' }}" id="toggle-switch-{{ $name }}">
     @foreach($options as $key=>$disp)
         <label for="{{$name }}_{{ $key }}" tabindex="0"><input type="radio" id="{{ $name }}_{{ $key }}" name="{{ $name }}" value="{{ $key }}" @if($value==$key) checked @endif/>{{ $disp }}</label>
     @endforeach
