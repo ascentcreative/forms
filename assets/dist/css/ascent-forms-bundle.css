@@ -835,9 +835,9 @@ div:has(.alert) > .compound-form-element label {
 
 /* disabled until Firefox supports :has() */
 /* Requires a jQuery widget just for this... */
-/*
-.toggle-switch label:not(:has(input:checked)) { */
-.toggle-switch label:not(.selected) {
+
+.toggle-switch label:not(:has(input:checked)) {
+/* .toggle-switch label:not(.selected) { */
     background: #ccc;
 }
 
