@@ -805,6 +805,9 @@ div:has(.alert) > .compound-form-element label {
     display: flex;
     align-self: center;
     justify-self: center;
+    margin-bottom: 0;
+
+    /* font-size: .75rem; */
 }
 
 .toggle-switch input {
