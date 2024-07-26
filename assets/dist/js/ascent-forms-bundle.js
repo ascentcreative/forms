@@ -1957,7 +1957,7 @@ var SubformLoader = {
   // options: {
   // },
   _init: function _init() {
-    var self = this; // alert('SFLoader');
+    var self = this; // alert('SFLoader: ' + this.element.data('source') );
 
     var map = this.element.data('map'); // watch for changes in the watched field, and use that value to request a subform.
 

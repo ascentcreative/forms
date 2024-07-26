@@ -10,10 +10,13 @@ class Subform extends FormObjectBase implements FormComponent {
 
     use Structural;
 
+    // public $loaderData = [];
+
     public $component = 'forms-structure-subform';
 
-    public function __construct($name) {
+    public function __construct($name, $loaderData = []) {
         $this->name = $name;
+        $this->loaderData = $loaderData;
     }
 
 

@@ -15,7 +15,7 @@ var SubformLoader = {
 
         var self = this;
 
-        // alert('SFLoader');
+        // alert('SFLoader: ' + this.element.data('source') );
         let map = this.element.data('map')
 
 
@@ -35,7 +35,7 @@ var SubformLoader = {
                     'key': $(source).val(),
                     'map': map
                 }
-            }).done(function(data) {
+            }).done(function(data) { 
                 $(self.element).html(data);
                 $(self.element).css('opacity', 1);
             });

@@ -38,11 +38,15 @@ class SubformLoader extends FormObjectBase implements FormComponent {
 
         if($key) {
             
-            $subform = $this->map[$key]; //$data->$source];
+            if(isset($this->map[$key])) {
+                $subform = $this->map[$key]; //$data->$source];
+            } else {
+                $subform = $this->map['default'];
+            }
         
             // instantiate the necessary subform based on the value
             $this->children([
-                $subform::make('dynamic'),
+                $subform::make('dynamic', ['source' => $source, 'key' => $key]),
             ]);
 
         }

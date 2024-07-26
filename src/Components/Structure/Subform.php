@@ -7,6 +7,8 @@ use Illuminate\View\Component;
 class Subform extends Component
 {
 
+    public $loaderData = [];
+
     /**
      * Create a new component instance.
      *

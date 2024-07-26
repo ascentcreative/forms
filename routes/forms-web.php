@@ -27,9 +27,15 @@ Route::middleware('web')->group( function() {
 
         // dd($map);
 
-        $cls = $map[$key];
+        // $cls = $map[$key];
 
-        $form = $cls::make('dynamic');
+        if(isset($map[$key])) {
+            $cls = $map[$key]; //$data->$source];
+        } else {
+            $cls = $map['default'];
+        }
+
+        $form = $cls::make('dynamic', ['key'=>$key]);
 
         return view('forms::children', ['children'=>$form->children])->render();
 
