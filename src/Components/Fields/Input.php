@@ -64,7 +64,11 @@ class Input extends Component
         $this->accept = $accept;
         $this->autocomplete = $autocomplete;
 
-        $this->wrapper = $wrapper;
+        if($this->type == 'hidden') {
+            $this->wrapper = 'none';
+        } else {
+           $this->wrapper = $wrapper;
+        }
         $this->class = $class;
 
         $this->multiple = $multiple;
