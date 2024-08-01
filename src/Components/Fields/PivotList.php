@@ -184,7 +184,8 @@ class PivotList extends Component
             $this->value = $data;
 
         } else {
-            echo 'Unexpected Data Type';
+            // probably null...
+            // echo 'Unexpected Data Type';
         }
 
         $this->wrapper = $wrapper;
