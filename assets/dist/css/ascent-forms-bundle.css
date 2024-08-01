@@ -867,6 +867,22 @@ div:has(.alert) > .compound-form-element label {
     position:relative;
 }
 
+.wysiwyg-editor .cke_editable {
+    width: 100%;
+    height: 100%;
+    padding: 10px 15px 0;
+    position: relative;
+}
+
+.wysiwyg-editor-styled {
+    background: white;
+    border: 1px solid #ccc;
+}
+
+.wysiwyg-editor-styled  .cke_editable {
+    padding: 10px 15px 0;
+}
+
 
 .croppieupload {
 	
