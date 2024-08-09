@@ -1333,8 +1333,7 @@ var PivotList = {
       } else {
         outer.css('width', opts.width + 'px');
       }
-    } else {
-      outer.css('max-width', '600px');
+    } else {// outer.css('max-width', '600px');
     }
 
     if (!opts.placeholder) {

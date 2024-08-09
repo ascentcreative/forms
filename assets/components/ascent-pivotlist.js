@@ -50,7 +50,7 @@ var PivotList = {
 					}
 				
 			} else {
-				outer.css('max-width', '600px');
+				// outer.css('max-width', '600px');
 			}
 			
 			if (!opts.placeholder) {
