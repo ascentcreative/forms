@@ -89,6 +89,7 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('forms-structure-tab', 'AscentCreative\Forms\Components\Structure\Tab');
     Blade::component('forms-structure-tabs', 'AscentCreative\Forms\Components\Structure\Tabs');
 
+    Blade::component('forms-display-activitylog', 'AscentCreative\Forms\Components\Display\ActivityLog');
     Blade::component('forms-display-blade', 'AscentCreative\Forms\Components\Display\Blade');
 
 

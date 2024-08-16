@@ -29,6 +29,10 @@ class HasMany extends Component
     public $wrapper;
     public $class;
 
+    // need to implement sortable and max items options
+    public $sortable;
+    public $maxitems;
+
     /**
      * Create a new component instance.
      *
@@ -38,7 +42,9 @@ class HasMany extends Component
                                 $relationship,
                                 $model=null,
                                 $package='app',
-                                $wrapper="bootstrapformgroup", $class='')
+                                $wrapper="bootstrapformgroup", $class='',
+                                $sortable=false,
+                                $maxitems=null)
     {
       
         $this->label = $label;
@@ -79,6 +85,9 @@ class HasMany extends Component
 
         $this->wrapper = $wrapper;
         $this->class = $class;
+
+        $this->sortable = $sortable;
+        $this->maxitems = $maxitems;
 
     }
 
