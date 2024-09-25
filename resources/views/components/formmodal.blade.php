@@ -1,4 +1,4 @@
-<x-cms-modal modalid="ajaxModal" :title="$title" :size="$size">
+<x-cms-modal modalid="ajaxModal" :title="$title" :size="$size" :showHeader="$modalShowHeader" :showFooter="$modalShowFooter">
 
     <x-slot name="formstart">@formstart($form)</x-slot>
 
