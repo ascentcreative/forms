@@ -34,7 +34,7 @@
     @endpush
 
     @push('scripts')
-        @script('/vendor/ascent/cms/form/components/ascent-relationshipautocomplete.js')
+        @scripttag('/vendor/ascent/cms/form/components/ascent-relationshipautocomplete.js')
     @endpush
 
 @endonce --}}

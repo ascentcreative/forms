@@ -6,7 +6,7 @@
     @endpush
 
     @push('scripts')
-        @script('/vendor/ascent/cms/form/components/ascent-pivotlist.js')
+        @scripttag('/vendor/ascent/cms/form/components/ascent-pivotlist.js')
     @endpush
 @endonce
 

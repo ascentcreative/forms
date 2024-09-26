@@ -36,8 +36,8 @@
 
 @once
     @push('scripts')
-        @script('/vendor/ascent/cms/ckeditor/ckeditor.js', false)
-        @script('/vendor/ascent/cms/ckeditor/adapters/jquery.js', false)
+        @scripttag('/vendor/ascent/cms/ckeditor/ckeditor.js', false)
+        @scripttag('/vendor/ascent/cms/ckeditor/adapters/jquery.js', false)
         <script>
             CKEDITOR.disableAutoInline = true;
         </script>

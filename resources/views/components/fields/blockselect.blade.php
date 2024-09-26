@@ -35,6 +35,6 @@
     @endpush
 
     @push('scripts')
-        @script('/vendor/ascent/cms/form/components/ascent-blockselect.js')
+        @scripttag('/vendor/ascent/cms/form/components/ascent-blockselect.js')
     @endpush
 @endonce --}}

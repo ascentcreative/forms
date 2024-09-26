@@ -26,8 +26,8 @@
 {{-- 
 @once
     @push('scripts')
-        @script('/vendor/ascent/cms/form/components/croppie/croppie.min.js')
-        @script('/vendor/ascent/cms/form/components/croppie/ascent-croppieupload.js')
+        @scripttag('/vendor/ascent/cms/form/components/croppie/croppie.min.js')
+        @scripttag('/vendor/ascent/cms/form/components/croppie/ascent-croppieupload.js')
     @endpush
 @endonce --}}
 

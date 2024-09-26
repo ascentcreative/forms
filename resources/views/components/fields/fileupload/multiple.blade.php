@@ -39,7 +39,7 @@
 {{-- 
 @once
     @push('scripts')
-        @script('/vendor/ascent/cms/form/components/ascent-ajaxuploadmulti.js')
+        @scripttag('/vendor/ascent/cms/form/components/ascent-ajaxuploadmulti.js')
     @endpush
     @push('styles')
         @style('/vendor/ascent/cms/form/components/ascent-ajaxuploadmulti.css')

@@ -4,7 +4,7 @@
 
 @push('scripts')
     
-    {{-- @script('/vendor/ascent/cms/jquery/ascent.cms.nestedset.js') --}}
+    {{-- @scripttag('/vendor/ascent/cms/jquery/ascent.cms.nestedset.js') --}}
 
     <script>
         $('#{{$name}}').nestedset({

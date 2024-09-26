@@ -36,7 +36,7 @@
 {{-- 
 @once
     @push('scripts')
-        @script('/vendor/ascent/cms/form/components/ascent-hasmany.js')
+        @scripttag('/vendor/ascent/cms/form/components/ascent-hasmany.js')
     @endpush
 @endonce --}}
 

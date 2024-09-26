@@ -19,7 +19,7 @@
     @endpush
 
     @push('scripts')
-        @script('/vendor/ascent/cms/form/components/ascent-relatedtokens.js')
+        @scripttag('/vendor/ascent/cms/form/components/ascent-relatedtokens.js')
     @endpush
 @endonce --}}
 

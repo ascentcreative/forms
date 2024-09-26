@@ -112,9 +112,9 @@
         @style('/vendor/ascent/cms/form/components/ascent-stack-edit.css')
     @endpush
     @push('lib')
-        @script('/vendor/ascent/cms/js/jquery.serializejson.js')
-        @script('/vendor/ascent/cms/form/components/ascent-stack-edit.js')
-        @script('/vendor/ascent/cms/form/components/ascent-stack-block-edit.js')
+        @scripttag('/vendor/ascent/cms/js/jquery.serializejson.js')
+        @scripttag('/vendor/ascent/cms/form/components/ascent-stack-edit.js')
+        @scripttag('/vendor/ascent/cms/form/components/ascent-stack-block-edit.js')
     @endpush
 @endonce
 

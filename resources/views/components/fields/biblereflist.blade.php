@@ -6,7 +6,7 @@
     @endpush
 
     @push('scripts')
-        @script('/vendor/ascent/cms/form/components/ascent-biblereflist.js')
+        @scripttag('/vendor/ascent/cms/form/components/ascent-biblereflist.js')
     @endpush
 @endonce --}}
 

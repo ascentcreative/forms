@@ -60,7 +60,7 @@ if($value) {
     @endpush
 
     @push('scripts')
-        @script('/vendor/ascent/cms/form/components/ascent-foreignkeyselect-autocomplete.js')
+        @scripttag('/vendor/ascent/cms/form/components/ascent-foreignkeyselect-autocomplete.js')
     @endpush
 
 @endonce
