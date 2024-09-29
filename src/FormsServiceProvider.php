@@ -61,6 +61,7 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('forms-fields-datetime', 'AscentCreative\Forms\Components\Fields\DateTime');
     Blade::component('forms-fields-button', 'AscentCreative\Forms\Components\Fields\Button');
     Blade::component('forms-fields-checkbox', 'AscentCreative\Forms\Components\Fields\Checkbox');
+    Blade::component('forms-fields-radiobutton', 'AscentCreative\Forms\Components\Fields\RadioButton');
     Blade::component('forms-fields-colour', 'AscentCreative\Forms\Components\Fields\Colour');
     Blade::component('forms-fields-croppie', 'AscentCreative\Forms\Components\Fields\Croppie');
     Blade::component('forms-fields-wysiwyg', 'AscentCreative\Forms\Components\Fields\Wysiwyg');
