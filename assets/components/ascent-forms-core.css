@@ -6,3 +6,107 @@
     margin-bottom: 0.25rem! important;
 }
 
+
+
+/** Styled Checkboxes **/
+input.styled[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color: white; 
+    /* var(--form-background); */
+    /* Not removed via appearance */
+    margin: 0;
+  
+    border: 2px solid var(--secondary); /* var(--cfe-active); */
+    border-radius: 3px;
+    background: white;
+    font: inherit;
+    color: var(--primary);
+    width: 1.5em;
+    height: 1.5em;
+    /* border: 0.15em solid white; */
+    /* border-radius: 0.15em; */
+    transform: translateY(-0.075em);
+  
+    display: grid;
+    place-content: center;
+
+    aspect-ratio: 1/1;
+  }
+  
+  input.styled[type="checkbox"]::before {
+    content: "";
+    width: 0.8em;
+    height: 0.8em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    /* transition: 120ms transform ease-in-out; */
+    box-shadow: inset 1em 1em var(--primary);
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+  }
+
+  input.styled[type="checkbox"]:checked {
+    border-color: var(--primary);
+  }
+  
+  input.styled[type="checkbox"]:checked::before {
+    transform: scale(1);
+  }
+
+
+
+  /** Styled RadioButton **/
+
+  input.styled[type="radio"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color: white; 
+    /* var(--form-background); */
+    /* Not removed via appearance */
+    margin: 0;
+  
+    border: 2px solid var(--secondary); /* var(--cfe-active); */
+    border-radius: 100%;
+    background: white;
+    font: inherit;
+    color: var(--primary);
+    width: 1.5em;
+    height: 1.5em;
+    /* border: 0.15em solid white; */
+    /* border-radius: 0.15em; */
+    transform: translateY(-0.075em);
+  
+    display: grid;
+    place-content: center;
+
+    aspect-ratio: 1/1;
+  }
+  
+  input.styled[type="radio"]::before {
+    content: "";
+    width: 0.8em;
+    height: 0.8em;
+    clip-path: circle(40%); 
+    transform: scale(0);
+    transform-origin: bottom left;
+    /* transition: 120ms transform ease-in-out; */
+    box-shadow: inset 1em 1em var(--primary);
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+  }
+
+  input.styled[type="radio"]:checked {
+    border-color: var(--primary);
+  }
+  
+  input.styled[type="radio"]:checked::before {
+    transform: scale(1);
+  }
