@@ -13,7 +13,7 @@
 
     @else
 
-        <select name="{{ $name }}" class="{{ $attributes['elementClass'] }} @if($wrapper != 'compound') form-control @endif">
+        <select name="{{ $name }}" id="{{ nameToId($name) }}" class="{{ $attributes['elementClass'] }} @if($wrapper != 'compound') form-control @endif">
 
             @if($includeNullItem) 
         
