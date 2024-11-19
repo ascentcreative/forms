@@ -2209,7 +2209,7 @@ observer.observe(document, {
 // Code (c) Kieran Metcalfe / Ascent Creative 2021
 
 $.ascent = $.ascent ? $.ascent : {};
-var CroppieUpload = {
+var FormsCroppieUpload = {
   vpw: 0,
   vph: 0,
   // Default options.
@@ -2430,8 +2430,8 @@ var CroppieUpload = {
     });
   }
 };
-$.widget('ascent.croppieupload', CroppieUpload);
-$.extend($.ascent.CroppieUpload, {});
+$.widget('ascent.formscroppieupload', FormsCroppieUpload);
+$.extend($.ascent.FormsCroppieUpload, {});
 !function (e, t) {
   "function" == typeof define && define.amd ? define(["exports"], t) : "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "string" != typeof exports.nodeName ? t(exports) : t(e.commonJsStrict = {});
 }(this, function (e) {

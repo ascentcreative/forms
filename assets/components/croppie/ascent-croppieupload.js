@@ -2,11 +2,9 @@
 // Wrapper Widget which utilises the Croppie image cropper library from https://github.com/Foliotek/Croppie
 // ******
 // Code (c) Kieran Metcalfe / Ascent Creative 2021
-
-
 $.ascent = $.ascent?$.ascent:{};
 
-var CroppieUpload = {
+var FormsCroppieUpload = {
 
     vpw: 0,
     vph: 0,
@@ -294,8 +292,8 @@ var CroppieUpload = {
 
 }
 
-$.widget('ascent.croppieupload', CroppieUpload);
-$.extend($.ascent.CroppieUpload, {
+$.widget('ascent.formscroppieupload', FormsCroppieUpload);
+$.extend($.ascent.FormsCroppieUpload, {
 		 
 		
 }); 

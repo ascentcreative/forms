@@ -34,7 +34,7 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            $('#{{$unid}}').croppieupload({
+            $('#{{$unid}}').formscroppieupload({
                 constrained: {{ $constrained }},
                 targetWidth: {{ $width }},
                 targetHeight: {{ $height }},
