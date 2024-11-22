@@ -17,6 +17,7 @@ class Wysiwyg extends Component
     public $wrapper;
     public $class;
     public $readonly;
+    public $height;
 
     public $toolbar;
     public $placeholder;
@@ -32,7 +33,8 @@ class Wysiwyg extends Component
     public function __construct($label, $name, $value, 
                         $toolbar='', $placeholder = '',
                         $wrapper='bootstrapformgroup', $class='',
-                        $styled=false, $readonly=false, $alwayson=true    
+                        $styled=false, $readonly=false, $alwayson=true,
+                        $height='100%'
                     )
     {
        
@@ -50,6 +52,7 @@ class Wysiwyg extends Component
         $this->readonly = $readonly;
 
         $this->alwayson = $alwayson;
+        $this->height = $height;
 
     }
 

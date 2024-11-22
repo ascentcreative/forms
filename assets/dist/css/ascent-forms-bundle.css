@@ -978,6 +978,12 @@ input.styled[type="checkbox"] {
 .wysiwyg-editor {
     cursor: default;
     position:relative;
+    width: 100%;
+    height: 100%;
+}
+
+.wysiwyg-editor .cke_editable {
+    overflow: auto; /* prevents collapsing margins */
 }
 
 .wysiwyg-editor .cke_editable {

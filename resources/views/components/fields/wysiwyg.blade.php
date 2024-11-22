@@ -19,7 +19,7 @@
     @else
 
 
-        <div class="wysiwyg-editor @if($styled) wysiwyg-editor-styled @endif" data-alwayson="{{ $alwayson }}" data-toolbar="{{ $toolbar }}" data-palette="{{ join(",", \AscentCreative\CMS\Models\Swatch::all()->transform(function($item, $key) { return str_replace('#', '', $item->hex); })->toArray()) }}" data-unid="{{ $unid }}" style="width: 100%; height: 100%;">
+        <div class="wysiwyg-editor @if($styled) wysiwyg-editor-styled @endif" data-alwayson="{{ $alwayson }}" data-toolbar="{{ $toolbar }}" data-palette="{{ join(",", \AscentCreative\CMS\Models\Swatch::all()->transform(function($item, $key) { return str_replace('#', '', $item->hex); })->toArray()) }}" data-unid="{{ $unid }}" style="width: 100%; height: {{ $height }};">
 
             <div @if(!$readonly) @else class="p-2" @endif id="edit-{{ $unid }}" style="height: 100%; xoutline-offset: 6px" placeholder="{{ $placeholder }}" >{!! $value !!}</div>
 
