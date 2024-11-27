@@ -32,7 +32,7 @@
         @endisset
 
     @endif
-    <div class="error-display" for="{{ str_replace(['[', ']'], '', $name) }}"></div>
+    <div class="error-display" for="{{ $name }}" xfor="{{ str_replace(['[', ']'], '', $name) }}"></div>
 
 </div> 
 
