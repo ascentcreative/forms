@@ -30,6 +30,7 @@ class Options extends Component
                                     $includeNullItem = true, $nullItemLabel = '- Select -'
                                 )
     {
+
         $this->type = $type;
         $this->label = $label;
         $this->name = $name;
