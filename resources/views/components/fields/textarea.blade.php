@@ -13,7 +13,9 @@
 
     @else
 
-        <textarea name="{{$name}}" id="{{ nameToId($name) }}" @isset($rows) rows="{{ $rows }}" @endisset @isset($cols) cols="{{ $cols }}" @endisset class="form-control">{{$value}}</textarea>
+        <textarea name="{{$name}}" id="{{ nameToId($name) }}" @isset($rows) rows="{{ $rows }}" @endisset @isset($cols) cols="{{ $cols }}" @endisset class="form-control"
+            placeholder="{{ $attributes['placeholder'] ?? '' }}"
+            >{{$value}}</textarea>
 
     @endif
 
