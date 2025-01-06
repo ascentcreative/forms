@@ -4,3 +4,12 @@
     background-repeat: no-repeat;
     padding-left: 30px;
 }
+
+ul.pivotlist-list {
+    margin: 0;
+    padding: 0;
+}
+
+ul.pivotlist-list li {
+    margin: 0;
+}
