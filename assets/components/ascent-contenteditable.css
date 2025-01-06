@@ -2,17 +2,21 @@
     display: none;   
 }
 
-.forms-contenteditable {
+/* .forms-contenteditable { */
     /* position: relative; */
     /* inset: 0; */
     /* right: var(--cfe-padding);  */
     /* left: var(--cfe-padding);  */
     /* bottom: 5px; */
     /* top: 1rem; */
-}
+/* } */
 
 .forms-contenteditable .form-control {
     height: auto;
+
+    /* These settings force linebreaks to be /r/n rather than HTML */
+    display: inline-block;
+    white-space: pre-wrap;
 }
 
 
