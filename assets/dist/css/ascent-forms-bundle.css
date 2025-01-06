@@ -487,12 +487,16 @@ div:has(.alert) > .compound-form-element label {
 }
 
 .forms-contenteditable {
-    position: relative;
+    /* position: relative; */
     /* inset: 0; */
     /* right: var(--cfe-padding);  */
     /* left: var(--cfe-padding);  */
-    bottom: 5px;
-    top: 1rem;
+    /* bottom: 5px; */
+    /* top: 1rem; */
+}
+
+.forms-contenteditable .form-control {
+    height: auto;
 }
 
 
