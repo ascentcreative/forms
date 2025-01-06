@@ -26,5 +26,3 @@
     @endif
     <div class="cfe-error error-display" for="{{ $name }}"></div>
 </div>
-
-@include('forms::components.fields.support.charlimit')

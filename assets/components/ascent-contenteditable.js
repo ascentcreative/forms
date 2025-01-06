@@ -27,14 +27,24 @@
             $(this.element).addClass('initialised');
 
             self.options.pasteTextOnly = self.element.data('pastetextonly');
-            
+
+            let charlimit = $(this.element).data('charlimit');
+
+            if(charlimit) {
+                $(this.element).find('.fce-edit').charlimit({
+                    'max': charlimit,
+                    'force': true
+                });
+            }
             /**
              * Handle updates to content div. 
              */
             $(this.element).on('input', '.fce-edit', function(e) {
-            
-                $(self.element).find('textarea').val($(this).html());
+                $(self.element).find('textarea').val($(this).html()).trigger('input');
+            });
 
+            $(this.element).on('charlimit.reached', function(e) {
+                $(self.element).find('.fce-edit').html($(self.element).find('textarea').val());
             });
 
 
