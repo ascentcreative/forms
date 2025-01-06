@@ -749,12 +749,19 @@ var ContentEditable = {
     var self = this;
     $(this.element).addClass('initialised');
     self.options.pasteTextOnly = self.element.data('pastetextonly');
+    $(this.element).find('.fce-edit').charlimit({
+      'max': 180,
+      'force': true
+    });
     /**
      * Handle updates to content div. 
      */
 
     $(this.element).on('input', '.fce-edit', function (e) {
-      $(self.element).find('textarea').val($(this).html());
+      $(self.element).find('textarea').val($(this).html()).trigger('input');
+    });
+    $(this.element).on('charlimit.reached', function (e) {
+      $(self.element).find('.fce-edit').html($(self.element).find('textarea').val());
     }); // ** Strip out HTML on paste **
 
     $(this.element).on('paste', '.fce-edit', function (e) {
@@ -3432,6 +3439,8 @@ var CharLimit = {
       }
 
       if (val.length > self.options.max && self.options.force) {
+        self.element.trigger('charlimit.reached');
+
         if (elm.val()) {
           elm.val(elm.val().substr(0, self.options.max));
         } else {

@@ -486,17 +486,21 @@ div:has(.alert) > .compound-form-element label {
     display: none;   
 }
 
-.forms-contenteditable {
+/* .forms-contenteditable { */
     /* position: relative; */
     /* inset: 0; */
     /* right: var(--cfe-padding);  */
     /* left: var(--cfe-padding);  */
     /* bottom: 5px; */
     /* top: 1rem; */
-}
+/* } */
 
 .forms-contenteditable .form-control {
     height: auto;
+
+    /* These settings force linebreaks to be /r/n rather than HTML */
+    display: inline-block;
+    white-space: pre-wrap;
 }
 
 
@@ -678,6 +682,15 @@ input.styled[type="checkbox"] {
     background-position: left 10px center;
     background-repeat: no-repeat;
     padding-left: 30px;
+}
+
+ul.pivotlist-list {
+    margin: 0;
+    padding: 0;
+}
+
+ul.pivotlist-list li {
+    margin: 0;
 }
 .cms-relatedtokens {
     
