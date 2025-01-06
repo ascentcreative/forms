@@ -1,17 +1,26 @@
 @extends('forms::components.wrappers.' . $wrapper)
 
+@section('label'){{$label}}@overwrite
+@section('name'){{$name}}@overwrite
+
 @section('element')
 
-@foreach($options as $key=>$opt)
+<div class="checkbox-columns-container">
+    <div class="checkbox-columns-inner">
 
-    <label for="{{ nameToId($name) }}-{{$key}}">
+    @foreach($options as $key=>$opt)
 
-        <input type="checkbox" value="{{ $key }}" id="{{ nameToId($name) }}-{{$key}}" name="{{ $name }}[]" @if($value == $key || in_array($key, $value ?? [])) checked @endif>
-        <span>{!! $opt !!}</span>
+        <label for="{{ nameToId($name) }}-{{$key}}">
 
-    </label>
+            <input type="checkbox" value="{{ $key }}" id="{{ nameToId($name) }}-{{$key}}" name="{{ $name }}[]" @if($value == $key || in_array($key, $value ?? [])) checked @endif>
+            <span>{!! $opt !!}</span>
 
-@endforeach
+        </label>
 
+    @endforeach
+
+    </div>
+
+</div>
 
 @overwrite

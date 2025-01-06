@@ -539,6 +539,7 @@ div:has(.alert) > .compound-form-element label {
     margin-left: 10px;
 }
 
+
 .simple-form-element:has(label) {
     margin-bottom: 0.75rem;
 }
@@ -661,6 +662,36 @@ input.styled[type="checkbox"] {
   input.styled[type="radio"]:checked::before {
     transform: scale(1);
   }
+
+
+
+
+.checkbox-columns-container {
+    container-type: inline-size;
+}
+
+.checkbox-columns-inner {
+    columns: 3;
+}
+
+.checkbox-columns-inner label {
+    flex-wrap: nowrap;
+}   
+
+@container (max-width: 600px) {
+    .checkbox-columns-inner {
+        /* background: green; */
+        columns: 2;
+    }
+}
+
+
+@container (max-width: 400px) {
+    .checkbox-columns-inner {
+        /* background: green; */
+        columns: 1;
+    }
+}
 
 /* .input-password {
     position: relative;

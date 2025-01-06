@@ -8,8 +8,9 @@
     {{-- Need a hidden text element to allow for an empty value --}}
     {{-- Otherwise, values won't be deleted when the model is saved when all checkboxes have been unticked --}}
     <input type="hidden" name="{{$name}}" value=""/>
-
-    <div style="columns: {{ $attributes['columns'] ?? 1 }}; xdisplay: grid; grid-template-columns: repeat({{ $attributes['columns'] ?? 1 }}, 1fr)">
+    
+    <div class="checkbox-columns-container">
+        <div class="checkbox-columns-inner">
     <?php 
      
         if($readonly) {
@@ -44,6 +45,8 @@
 
        
         @endforeach
+
+        </div>
 
     </div>
 
