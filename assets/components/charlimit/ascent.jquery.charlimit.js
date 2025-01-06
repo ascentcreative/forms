@@ -53,6 +53,9 @@ var CharLimit = {
             }
             
 			if(val.length > self.options.max && self.options.force) {
+
+                self.element.trigger('charlimit.reached');
+
                 if(elm.val()) {
 				    elm.val(elm.val().substr(0, self.options.max));
                 } else {
