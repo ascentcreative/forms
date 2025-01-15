@@ -173,7 +173,30 @@ class FormObjectBase {
 
             } else if(isset($data->$thisKey)) {
                 $data = $data->$thisKey;
-                return $this->traverseData($data, join('.', $ary));
+
+                if($data instanceof \Illuminate\Database\Eloquent\Collection) {
+                    // the property is a collection, but we're looking for a single item within it
+                    // (the provided $key had a dot, meaning a property with a sub property)
+                    // - most likely something like: metadata.somekey                 
+                    if($data->count() > 0) {
+
+                        // We need to extract the value for "somekey" from the collection. 
+                        // - The models in the collection will likely have a key field and a value field.
+                        // - The names of these fields will be defined as static variables on the model class:
+                        $cls = get_class($data[0]);
+                        $keyField = $cls::$forms_keyfield; //'key';
+                        $valueField = $cls::$forms_valuefield; // 'value';
+                        
+                        $subkey = array_shift($ary); // get the second half of the original key
+                        $data = $data->keyBy($keyField); 
+                        return $data[$subkey]->$valueField ?? null;
+
+                    }
+
+                } else {
+                    return $this->traverseData($data, join('.', $ary));
+                }
+
             } else {
            //     dump('end traverse empty handed');
             }
@@ -187,6 +210,7 @@ class FormObjectBase {
             if(isset($data->$key)) {
                 return $data->$key;
             } else {
+              
                 // return '';
             }
         }
