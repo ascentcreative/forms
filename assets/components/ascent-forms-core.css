@@ -138,15 +138,18 @@ input.styled[type="checkbox"] {
 
 @container (max-width: 600px) {
     .checkbox-columns-inner {
-        /* background: green; */
         columns: 2;
     }
 }
 
-
 @container (max-width: 400px) {
     .checkbox-columns-inner {
-        /* background: green; */
+        /* background-color: green; */
         columns: 1;
     }
+} 
+
+.filter-options .checkbox-columns-inner {
+    display: flex !important;
+    flex-direction: column !important;
 }
