@@ -1,6 +1,6 @@
 @extends('forms::components.wrappers.' . $wrapper)
 
-@section('label')@overwrite
+@section('label'){{$label}}@overwrite
 @section('name'){{$name}}@overwrite
 
 @section('element')
