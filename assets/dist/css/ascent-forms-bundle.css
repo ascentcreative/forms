@@ -726,8 +726,19 @@ ul.pivotlist-list {
 ul.pivotlist-list li {
     margin: 0;
 }
-.cms-relatedtokens {
-    
+.relatedtokens.form-control {
+    height: auto;
+}
+
+.relatedtokens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.relatedtokens input.item-entry {
+    display: inline-block;
+    width: auto;
 }
 
 .rt_token {
@@ -735,7 +746,7 @@ ul.pivotlist-list li {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    margin: 0 5px 5px 0px;
+    /* margin: 0 5px 5px 0px; */
 }
 
 .rt_token A {

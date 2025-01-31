@@ -78,6 +78,7 @@ class FormsServiceProvider extends ServiceProvider
     Blade::component('forms-fields-foreignkeyselect', 'AscentCreative\Forms\Components\Fields\ForeignKeySelect');
     Blade::component('forms-fields-hasmany', 'AscentCreative\Forms\Components\Fields\HasMany');
     Blade::component('forms-fields-relationautocomplete', 'AscentCreative\Forms\Components\Fields\RelationAutocomplete');
+    Blade::component('forms-fields-relatedtokens', 'AscentCreative\Forms\Components\Fields\RelatedTokens');
     Blade::component('forms-fields-pivotlist', 'AscentCreative\Forms\Components\Fields\PivotList');
     Blade::component('forms-fields-morphpivot', 'AscentCreative\Forms\Components\Fields\MorphPivot');
 

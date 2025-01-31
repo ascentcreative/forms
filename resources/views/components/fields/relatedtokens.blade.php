@@ -9,25 +9,20 @@
 
 @section('element')
 
-    <INPUT type="text" name="{{ $name }}_input" id="tkn_{{ $uniq }}" data-tokens="{!! $value !!}" class="cms-relatedtokens form-control" />
+    <INPUT type="text" name="{{ $name }}_input" id="tkn_{{ $uniq }}" class="item-entry form-control" 
+        placeholder="Type to search..."
+    />
 
 @overwrite
-{{-- 
-@once
-    @push('styles')
-        @style('/vendor/ascent/cms/form/components/ascent-relatedtokens.css')
-    @endpush
-
-    @push('scripts')
-        @scripttag('/vendor/ascent/cms/form/components/ascent-relatedtokens.js')
-    @endpush
-@endonce --}}
 
 @push('scripts')
     <script>
         $('#tkn_{{ $uniq }}').relatedtokens({
-            fieldName: '{{ $relationship }}',
-            tokenName: '{{ $tokenName }}'
+            value: {!! $value !!},
+            fieldName: '{{ $name }}',
+            labelField: '{{ $labelField }}',
+            allowNewValues: {{ $allowNewValues ? 'true' : 'false' }},
+            source: {!! $options !!}
         });
     </script>
 @endpush
