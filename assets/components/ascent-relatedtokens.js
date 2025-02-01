@@ -23,7 +23,7 @@ var RelatedTokens = {
 
         //this.element.val('');
 
-        this.element.wrap('<DIV class="relatedtokens form-control"></DIV>');
+        this.element.wrap('<DIV class="relatedtokens form-control p-2 bg-light"></DIV>');
 
         this.element = this.element.parents('.relatedtokens');
 

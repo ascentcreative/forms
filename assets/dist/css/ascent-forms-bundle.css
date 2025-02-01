@@ -738,7 +738,7 @@ ul.pivotlist-list li {
 
 .relatedtokens input.item-entry {
     display: inline-block;
-    width: auto;
+    /* width: auto; */
 }
 
 .rt_token {
@@ -746,6 +746,7 @@ ul.pivotlist-list li {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    background-color: white;
     /* margin: 0 5px 5px 0px; */
 }
 

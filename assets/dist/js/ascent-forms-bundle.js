@@ -1556,7 +1556,7 @@ var RelatedTokens = {
     var self = this;
     val = this.options.value; //this.element.val('');
 
-    this.element.wrap('<DIV class="relatedtokens form-control"></DIV>');
+    this.element.wrap('<DIV class="relatedtokens form-control p-2 bg-light"></DIV>');
     this.element = this.element.parents('.relatedtokens'); // this.element.prepend('<div class="rt_tokens"></div>');
 
     for ($iTkn = 0; $iTkn < val.length; $iTkn++) {
