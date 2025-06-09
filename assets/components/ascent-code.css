@@ -1,10 +1,14 @@
 .code-editor {
-    background: #333;
-    color: lime;
     width: 100%;
     resize: none;
     font-family: monospace;
-    height:250px;
+    min-height:250px;
     padding: 5px;
     font-size: 13px;
+    tab-size: 4;
+}
+
+.code-editor.styled {
+    background: #333;
+    color: lime;
 }

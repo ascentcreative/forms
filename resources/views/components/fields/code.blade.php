@@ -5,6 +5,6 @@
 
 @section('element')
 
-    <textarea name="{{$name}}" class="code-editor">{{$value}}</textarea>
+    <textarea name="{{$name}}" class="code-editor form-control">{{$value}}</textarea>
 
 @overwrite
